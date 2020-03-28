@@ -17,7 +17,7 @@ public interface CollegeDAOInt {
 	 * Adds a College
 	 * 
 	 * @param dto
-	 * @throws DatabaseException
+	 * @throws Database
 	 */
 	public long add(CollegeDTO dto);
 
