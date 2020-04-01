@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.dhavisoft.rms.dto.AssignProgramsDTO;
 
-
 import com.dhavisoft.rms.service.CourseServiceInt;
 import com.dhavisoft.rms.service.ProgramServiceInt;
 
@@ -33,11 +32,10 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Autowired
 	ProgramServiceInt programService;
 
-	
 	/**
 	 * Adds a AssignPrograms
 	 * 
@@ -47,15 +45,16 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 	public long add(AssignProgramsDTO dto) {
 
 		log.debug("DAO add Started");
-		 
-		dto.setProgramName(programService.findByPK(dto.getProgramId()).getName());;
+
+		dto.setProgramName(programService.findByPK(dto.getProgramId()).getName());
+		;
 		long pk = (Long) sessionFactory.getCurrentSession().save(dto);
 		return pk;
 	}
 
 	public void update(AssignProgramsDTO dto) {
 		log.debug("DAO update Started");
-		
+
 		dto.setProgramName(programService.findByPK(dto.getProgramId()).getName());
 		sessionFactory.getCurrentSession().update(dto);
 	}
@@ -77,8 +76,7 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 	/**
 	 * Finds AssignPrograms by PK
 	 * 
-	 * @param pk
-	 *            : get parameter
+	 * @param pk : get parameter
 	 * @return dto
 	 * @throws DatabaseException
 	 */
@@ -94,8 +92,7 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 	/**
 	 * Finds AssignPrograms by Name
 	 * 
-	 * @param login
-	 *            : get parameter
+	 * @param login : get parameter
 	 * @return dto
 	 * @throws DatabaseException
 	 */
@@ -103,8 +100,7 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 	public AssignProgramsDTO findByLogin(String login) {
 
 		Session session = sessionFactory.getCurrentSession();
-		Criteria criteria = session.createCriteria(AssignProgramsDTO.class).add(
-				Restrictions.eq("email", login));
+		Criteria criteria = session.createCriteria(AssignProgramsDTO.class).add(Restrictions.eq("email", login));
 		List list = criteria.list();
 
 		AssignProgramsDTO dto = null;
@@ -115,7 +111,7 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 
 		return dto;
 	}
-	
+
 	public AssignProgramsDTO findByProgram(long programId, String firstName) {
 		log.debug("Model findByProgram Started");
 
@@ -128,7 +124,7 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 
 			criteria.add(Restrictions.eq("programId", programId));
 			criteria.add(Restrictions.eq("firstName", firstName));
-		
+
 			List list = criteria.list();
 
 			if (list.size() == 1) {
@@ -148,8 +144,7 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 	 * Searches AssignPrograms
 	 * 
 	 * @return list : List of AssignPrograms
-	 * @param dto
-	 *            : Search Parameters
+	 * @param dto : Search Parameters
 	 * @throws DatabaseException
 	 */
 
@@ -161,12 +156,9 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 	 * Searches AssignPrograms with pagination
 	 * 
 	 * @return list : List of AssignPrograms
-	 * @param dto
-	 *            : Search Parameters
-	 * @param pageNo
-	 *            : Current Page No.
-	 * @param pageSize
-	 *            : Size of Page
+	 * @param dto      : Search Parameters
+	 * @param pageNo   : Current Page No.
+	 * @param pageSize : Size of Page
 	 * @throws DatabaseException
 	 */
 
@@ -179,31 +171,34 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 		/*
 		 * if (dto.getId() > 0) { c.add(Restrictions.eq("id", dto.getId())); }
 		 */
-		
-		  if (dto.getFirstName() != null && dto.getFirstName().length() > 0) {
-		  c.add(Restrictions.like("firstName", dto.getFirstName() + "%"));
-		  } 
-		  
-		  if (dto.getLastName() != null && dto.getLastName().length() > 0) {
-		  c.add(Restrictions.like("lastName", dto.getLastName() + "%")); 
-		  }
-		 
-		  if (dto.getProgramName() != null && dto.getProgramName().length() > 0) {
-				c.add(Restrictions.like("programName", dto.getProgramName() + "%"));
-			}
-		  if (dto.getProgramId() > 0) {
-				c.add(Restrictions.eq("programId", dto.getProgramId()));
-			}
-		  
-		/*
-		 * if (dto.getFee() != null && dto.getFee().length() > 0) {
-		 * c.add(Restrictions.like("fee", dto.getFee() + "%")); } if (dto.getPaid() !=
-		 * null && dto.getPaid().length() > 0) { c.add(Restrictions.like("paid",
-		 * dto.getPaid() + "%")); } if (dto.getDue() != null && dto.getDue().length() >
-		 * 0) { c.add(Restrictions.like("due", dto.getDue() + "%")); } if
-		 * (dto.getDiscount() != null && dto.getDiscount().length() > 0) {
-		 * c.add(Restrictions.like("discount", dto.getDiscount() + "%")); }
-		 */
+
+		if (dto.getFirstName() != null && dto.getFirstName().length() > 0) {
+			c.add(Restrictions.like("firstName", dto.getFirstName() + "%"));
+		}
+
+		if (dto.getLastName() != null && dto.getLastName().length() > 0) {
+			c.add(Restrictions.like("lastName", dto.getLastName() + "%"));
+		}
+
+		if (dto.getProgramName() != null && dto.getProgramName().length() > 0) {
+			c.add(Restrictions.like("programName", dto.getProgramName() + "%"));
+		}
+		if (dto.getProgramId() > 0) {
+			c.add(Restrictions.eq("programId", dto.getProgramId()));
+		}
+		if (dto.getFee() != null && dto.getFee().length() > 0) {
+			c.add(Restrictions.like("fee", dto.getFee() + "%"));
+		}
+		if (dto.getPaid() != null && dto.getPaid().length() > 0) {
+			c.add(Restrictions.like("paid", dto.getPaid() + "%"));
+		}
+		if (dto.getDue() != null && dto.getDue().length() > 0) {
+			c.add(Restrictions.like("due", dto.getDue() + "%"));
+		}
+		if (dto.getDiscount() != null && dto.getDiscount().length() > 0) {
+			c.add(Restrictions.like("discount", dto.getDiscount() + "%"));
+		}
+
 		c.addOrder(Order.desc("id"));
 
 		// if page size is greater than zero the apply pagination
@@ -214,6 +209,5 @@ public class AssignProgramsDAOHibImpl implements AssignProgramsDAOInt {
 
 		return c.list();
 	}
-
 
 }

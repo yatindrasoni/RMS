@@ -53,7 +53,7 @@
 					name="header"></tiles:insertAttribute></td>
 		</tr>
 		<tr>
-			<td colspan="1" height="400px" valign="top" width="20%" align="left">
+			<td colspan="1" height="400px" valign="top" width="17%" align="left">
 			<tiles:insertAttribute name="menu"></tiles:insertAttribute></td>
 			
 			<td colspan="1" height="400px" width="100%" valign="top" align="right" >

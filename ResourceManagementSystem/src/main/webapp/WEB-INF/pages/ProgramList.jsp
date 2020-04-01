@@ -7,13 +7,13 @@
 	function checkAll(master) {
 		var checked = master.checked;
 		var col = document.getElementsByTagName("INPUT");
-		for ( var i = 0; i < col.length; i++) {
+		for (var i = 0; i < col.length; i++) {
 			col[i].checked = checked;
 		}
 	}
 </script>
 <h2 class="container  text-center text-primary"
-	style="margin-top: -4; margin-left: -100;">
+	style="margin-top: -4; margin-left: -10;">
 	<b><span class="glyphicon glyphicon-th-list"></span>&emsp;<s:message
 			code="label.listProgram"></s:message></b>
 </h2>
@@ -36,41 +36,9 @@
 
 	<sf:hidden path="pageNo" />
 	<sf:hidden path="pageSize" />
-
-	<div class="form-group" style="margin-left: -140;">
-
-
-		<sf:label path="programName" for="inputPassword3">
-			<s:message code="label.programName"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="programName" class="form-control" id="inputEmail3" />
-		&emsp;
-	</div>
-
-	<div class="form-group">
-
-
-		<sf:label path="duration" for="inputPassword3">
-			<s:message code="label.duration"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="duration" class="form-control" id="inputEmail3" />
-		&emsp;
-	</div>
-
-
-
-	<button type="submit" class="btn btn-primary" name="operation"
-		value="Search">
-		<span class="glyphicon glyphicon-search"></span>
-		<s:message code="label.search"></s:message>
-	</button>
-	<br>
-	<br>
-
-
-	<table class="table table-inverse table-striped">
+	
+<div class="table-responsive">	
+	<table class="table table-striped table-bordered">
 
 		<c:if test="${!empty list}">
 			<tr>
@@ -78,18 +46,37 @@
 					<th><input type="checkbox" onclick="checkAll(this)" />&emsp;<span
 						class="glyphicon glyphicon-check"></span></th>
 				</c:if>
-				<th><span class="glyphicon glyphicon-list-alt"></span> <s:message
-						code="label.sno" /></th>
-				<th><span class="glyphicon glyphicon-education"></span> <s:message
-						code="label.programName" /></th>
-				<th><span class="glyphicon glyphicon-book"></span> <s:message
-						code="label.description" /></th>
-				<th><span class="glyphicon glyphicon-align-center"></span> <s:message
-						code="label.duration" /></th>
-				<c:if test="${sessionScope.user.roleId == 1}">
-					<th><span class="glyphicon glyphicon-edit"></span> <s:message
-							code="label.edit" /></th>
-				</c:if>
+
+				<th><s:message code="label.sno" /></th>
+				<th><s:message code="label.Action" />
+					<div style="margin-left: 2">
+						<button type="button" class="btn btn-info" data-toggle="collapse"
+							data-target="#demo,#demo0,#demo1,#demo2">
+							<span class="glyphicon glyphicon-filter"></span>
+						</button>
+					</div>
+					<div id="demo"  class="collapse" style="margin-left: 50; margin-top: -27">
+						  <button type="submit" class="btn btn-primary" name="operation" value="Search">
+							<span class="glyphicon glyphicon-search"></span>
+						  </button>
+					</div>
+				</th>
+
+				<th><s:message code="label.programName" />
+					<div style="margin-bottom: 10; margin-left: -2" id="demo" class="collapse">
+						<sf:input path="programName" class="form-control" id="inputEmail3" placeholder="Program Name"/>
+					</div></th>
+
+				<th><s:message code="label.description" />
+					<div style="margin-bottom: 10; margin-left: -2" id="demo" class="collapse">
+						<sf:input path="description" class="form-control" id="inputEmail3" placeholder="Description"/>
+					</div></th>
+
+				<th><s:message code="label.duration" />
+					<div style="margin-bottom: 10; margin-left: -2" id="demo" class="collapse">
+						<sf:input path="duration" class="form-control" id="inputEmail3" placeholder="Duration"/>
+					</div></th>
+
 			</tr>
 
 			<c:forEach items="${list}" var="program" varStatus="ct">
@@ -99,19 +86,32 @@
 					</c:if>
 					<td><c:out
 							value="${(form.pageSize * (form.pageNo-1))+ct.index+1}" /></td>
+
+					<td class="dropdown"><a class="btn btn-default actionButton"
+						data-toggle="dropdown"> Action </a>
+						<ul class="dropdown-menu" role="menu" id="contextMenu">
+
+							<li><a tabindex="-1" href="${editUrl}${program.id}"> <s:message
+										code="label.edit" />
+							</a></li>
+
+					     </ul>
+					 </td>
 					<td><c:out value="${program.name}" /></td>
 					<td><c:out value="${program.description}" /></td>
 					<td><c:out value="${program.duration}" /></td>
-					<c:if test="${sessionScope.user.roleId == 1}">
+
+					<%-- 	<c:if test="${sessionScope.user.roleId == 1}">
 						<td><a href="${editUrl}${program.id}"><span
 								class="glyphicon glyphicon-pencil"></span></a></td>
-					</c:if>
+					</c:if> --%>
 				</tr>
 			</c:forEach>
 
 		</c:if>
 
 	</table>
+</div>	
 	<c:if test="${!empty list}">
 
 		<c:if test="${sessionScope.user.roleId == 1}">
@@ -131,6 +131,12 @@
 			</button>
 		</c:if>
 	</c:if>
+	&nbsp;
+	
+	<input type=button
+		onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/Program/search'"
+		value='Back' class="btn btn-primary">
+
 	<div class="container" style="margin-top: 10; margin-left: -20;">
 		<ul class="pagination pagination-lg">
 			<c:forEach var="i" begin="1" end="${size}">

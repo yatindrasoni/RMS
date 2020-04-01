@@ -95,8 +95,8 @@ public class CandidateValidator implements Validator {
 			}
 		}
 		
-		if (DataValidator.isNull(candidate.getBranch())) {
-			errors.rejectValue("branch", "NotEmpty.form.branch");
+		if (DataValidator.isNull(candidate.getBranchName())) {
+			errors.rejectValue("branchName", "NotEmpty.form.branch");
 		}
 		
 		

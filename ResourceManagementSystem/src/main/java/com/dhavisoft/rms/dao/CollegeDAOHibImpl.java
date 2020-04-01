@@ -156,7 +156,11 @@ public class CollegeDAOHibImpl implements CollegeDAOInt{
 		}
 		if (dto.getCity() != null && dto.getCity().length() > 0) {
 			c.add(Restrictions.like("city", dto.getCity() + "%"));
-		}c.addOrder(Order.desc("id"));
+		}
+		if (dto.getMobileNo() != null && dto.getMobileNo().length() > 0) {
+			c.add(Restrictions.like("mobileNo", dto.getMobileNo() + "%"));
+		}
+		c.addOrder(Order.desc("id"));
 
 		// if page size is greater than zero the apply pagination
 		if (pageSize > 0) {

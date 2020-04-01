@@ -12,7 +12,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.dhavisoft.rms.dto.AssignProgramsDTO;
 import com.dhavisoft.rms.dto.FacultyDTO;
 import com.dhavisoft.rms.dto.TrainerDTO;
 import com.dhavisoft.rms.service.ProgramServiceInt;
@@ -199,9 +198,6 @@ private static Logger log = Logger.getLogger(TrainerDAOHibImpl.class);
 		}
 		if (dto.getProgramId() > 0) {
 			c.add(Restrictions.eq("programId", dto.getProgramId()));
-		}
-		if (dto.getEmail() != null) {
-			c.add(Restrictions.eq("email", dto.getEmail()));
 		}
 		c.addOrder(Order.desc("id"));
 

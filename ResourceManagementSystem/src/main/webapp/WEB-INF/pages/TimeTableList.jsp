@@ -15,7 +15,7 @@
 	}
 </script>
 <h2 class="container  text-center text-primary"
-	style="margin-top: -4; margin-left: -60;">
+	style="margin-top: -4; margin-left: -50;">
 	<b><span class="glyphicon glyphicon-th-list"></span>&emsp;<s:message
 			code="label.listTimeTable"></s:message></b>
 </h2>
@@ -39,31 +39,8 @@
 	<sf:hidden path="pageNo" />
 	<sf:hidden path="pageSize" />
 
-	<div class="form-group">
-
-		<sf:label path="programId" for="inputPassword3">
-			<s:message code="label.programName" />
-		</sf:label>
-		&emsp;
-		<sf:select class="form-control" STYLE="width: 195px" size="0"
-			path="programId">
-			<sf:option value="" label="Select" />
-			<sf:options items="${programList}" itemValue="id" itemLabel="name" />
-		</sf:select>
-
-		&emsp;
-	</div>
-
-
-	<button type="submit" class="btn btn-primary" name="operation"
-		value="Search">
-		<span class="glyphicon glyphicon-search"></span>
-		<s:message code="label.search"></s:message>
-	</button>
-	<br>
-	<br>
-
-	<table class="table table-inverse table-striped">
+<div class="table-responsive">	
+	<table class="table table-striped table-bordered">
 
 		<c:if test="${!empty list}">
 			<tr>
@@ -71,27 +48,48 @@
 					<th><input type="checkbox" onclick="checkAll(this)" />&emsp;<span
 						class="glyphicon glyphicon-check"></span></th>
 				</c:if>
-				<th><span class="glyphicon glyphicon-list-alt"></span> <s:message
-						code="label.sno" /></th>
+				<th><s:message code="label.sno" /></th>
+				<th><s:message code="label.Action" />
+					<div style="margin-left: 2">
+						<button type="button" class="btn btn-info" data-toggle="collapse"
+							data-target="#demo,#demo1">
+							<span class="glyphicon glyphicon-filter"></span>
+						</button>
+					</div>
+					<div id="demo"  class="collapse" style="margin-left: 50; margin-top: -27">
+						  <button type="submit" class="btn btn-primary" name="operation" value="Search">
+							<span class="glyphicon glyphicon-search"></span>
+						  </button>
+					</div>
+				</th>
 				
-				<th><span class="glyphicon glyphicon-education"></span> <s:message
-						code="label.programName" /></th>
-				<th><span class="glyphicon glyphicon-education"></span> <s:message
-						code="label.trainerName" /></th>		
-				
-				<%-- <th><span class="glyphicon glyphicon-calendar"></span> <s:message
-						code="label.examDate" /></th> --%>
-				
-				<th><span class="glyphicon glyphicon-time"></span> <s:message
-						code="label.time" /></th>
+				<th><s:message code="label.programName" />
+				   <div id="demo"  class="collapse">
+				      <sf:select class="form-control" STYLE="width: 195px" size="0" path="programId">
+			             <sf:option value="" label="Select" />
+			             <sf:options items="${programList}" itemValue="id" itemLabel="name" />
+		              </sf:select>
+				   </div>
+				</th>
+				<th><s:message code="label.trainerName" />
+				  <div id="demo"  class="collapse">
+				     <sf:select class="form-control" STYLE="width: 193px" size="0" path="trainerId">
+					    <sf:option value="" label="Select" />
+					    <sf:options items="${trainerList}" itemValue="id" itemLabel="value" />
+				     </sf:select>
+				  </div>
+				</th>		
+			
+				<th><s:message code="label.time" />
+				 <div id="demo"  class="collapse">
+				   <sf:select class="form-control" STYLE="width: 195px" size="0" path="time">
+					 <sf:option value="" label="Select" />
+					 <sf:option value="10:00 AM - 1:00 AM" label="10:00 AM - 1:00 AM" />
+					 <sf:option value="2:00 AM - 5:00 AM" label="2:00 AM - 5:00 AM" />
+				   </sf:select>
+				 </div>
+				</th>
 						
-				<%-- <th><span class="glyphicon glyphicon-calendar"></span> <s:message
-						code="label.day" /></th> --%>
-						
-				<c:if test="${sessionScope.user.roleId == 1}">
-					<th><span class="glyphicon glyphicon-edit"></span> <s:message
-							code="label.edit" /></th>
-				</c:if>
 			</tr>
 
 			<c:forEach items="${list}" var="timetable" varStatus="ct">
@@ -101,30 +99,28 @@
 					</c:if>
 					<td><c:out
 							value="${(form.pageSize * (form.pageNo-1))+ct.index+1}" /></td>
+					<td class="dropdown"><a class="btn btn-default actionButton"
+						     data-toggle="dropdown"> Action </a>
+						<ul class="dropdown-menu" role="menu" id="contextMenu">
+
+							<li><a tabindex="-1" href="${editUrl}${timetable.id}"> <s:message
+										code="label.edit" />
+							</a></li>
+
+					     </ul>
+					 </td>
 							
 					<td><c:out value="${timetable.programName}" /></td>
 					<td><c:out value="${timetable.trainerName}" /></td>
-					
-					<%-- <td><c:out value="${timetable.trainerName}" /></td> --%>
-					
-					<%-- <td><fmt:formatDate pattern="dd-MM-yyy" type="date" value="${timetable.examinationDate}" /></td> --%>
-							
-					<%-- <td><c:out value="${timetable.examinationDate}" /></td> --%>
 					<td><c:out value="${timetable.time}" /></td>
 					
-					<%-- <td><c:out value="${timetable.day}" /></td> --%>
-					
-					<c:if test="${sessionScope.user.roleId == 1}">
-						<td><a href="${editUrl}${timetable.id}"><span
-								class="glyphicon glyphicon-pencil"></span></a></td>
-					</c:if>
 				</tr>
 			</c:forEach>
 
 		</c:if>
 
 	</table>
-
+</div>
 	<%-- <button type="submit" class="btn btn-primary text-center"
 		name="operation" value="Next">
 		<span class="glyphicon glyphicon-plus"></span> Next
@@ -147,11 +143,11 @@
 			</button>
 		</c:if>
 	</c:if>
-	<%-- <button type="submit" class="btn btn-primary text-center"
-		name="operation" value="Previous">
-		<span class="glyphicon glyphicon-plus"></span> Previous
-	</button> --%>
-
+	&nbsp;
+	<input type=button
+		onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/TimeTable/search'"
+		value='Back' class="btn btn-primary">
+		
 
 	<div class="container" style="margin-top: 10; margin-left: -15;">
 		<ul class="pagination pagination-lg">

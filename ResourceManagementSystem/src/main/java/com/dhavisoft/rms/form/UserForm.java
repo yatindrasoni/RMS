@@ -260,7 +260,7 @@ public class UserForm extends BaseForm{
 		lastName = Util.getCapital(dto.getLastName());
 		login = dto.getLogin();
 		password = dto.getPassword();
-		System.out.println(password);
+		System.out.println("++++Password++++"+password);
 		dob = dto.getDob();
 		mobileNo = dto.getMobileNo();
 		roleId = dto.getRoleId();

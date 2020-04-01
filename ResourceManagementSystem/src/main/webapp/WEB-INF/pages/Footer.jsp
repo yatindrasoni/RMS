@@ -4,6 +4,7 @@
 
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">	
 
 <script type="text/javascript">
 	$('#sandbox-container .input-group.date').datepicker({
@@ -14,11 +15,8 @@
 </head>
 
 
-<div class="container  text-center" style="margin-left: -20;">
-	<p style="position: absolute; left: 0; bottom: 0; width: 100%; height: 50px; color: black; background-color: E9E9E9; text-align: center; margin:0 auto;" 
-	          align="center"  >
-	        
+<div class="container text-center">
+	<p style="position: fixed; left: 0; bottom: 0; width: 100%; height: 50px; color: black; background-color: E9E9E9; text-align: center; margin:0 auto;">
 		      <b> &#9400; <s:message code="label.Copyrights" /></b>
-		   
 	</p>
 </div>

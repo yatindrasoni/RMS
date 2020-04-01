@@ -1,6 +1,5 @@
 package com.dhavisoft.rms.ctl;
 
-import org.apache.log4j.Logger;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
  * @Copyright (c) Dhavisoft
  */
 public abstract class BaseCtl {
-	private static Logger log = Logger.getLogger(BaseCtl.class);
 	
 	/**
 	 * Operation constants
@@ -38,6 +36,5 @@ public abstract class BaseCtl {
 	@ModelAttribute
 	public void preload(Model model) {
 		System.out.println("this is preload method");
-		log.info("preload method of BaseCtl");
 	}
 }

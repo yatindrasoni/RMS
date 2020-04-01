@@ -34,65 +34,69 @@
 	<sf:hidden path="pageNo" />
 	<sf:hidden path="pageSize" />
 
-	<div class="form-group" style="margin-top: 20">
-		<sf:label path="firstName" for="inputPassword3">
-			<s:message code="label.firstName"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="firstName" class="form-control" id="inputEmail3" />
-		&emsp;
-	
-		<sf:label path="lastName" for="inputPassword3">
-			<s:message code="label.lastName"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="lastName" class="form-control" id="inputEmail3" />
-		&emsp;
-		<sf:label path="programId" for="inputPassword3">
-			<s:message code="label.programName1" />
-		</sf:label>
-
-
-		<sf:select class="form-control" STYLE="width: 195px" size="0"
-			path="programId">
-			<sf:option value="" label="Select" />
-			<sf:options items="${programList}" itemValue="id" itemLabel="name" />
-		</sf:select>
-		&emsp;
-	</div>
-
-	<button type="submit" class="btn btn-primary" name="operation" value="Search" style="margin-top: 20">
-		<span class="glyphicon glyphicon-search"></span> Search
-	</button>
-	<br>
-	<br>
-
-	<table class="table table-inverse table-striped">
+<div class="table-responsive">	
+	<table class="table table-striped table-bordered">
 		<c:if test="${!empty list}">
 			<tr>
 				<th><input type="checkbox" onclick="checkAll(this)" />&emsp;<span
 					class="glyphicon glyphicon-check"></span></th>
 				
-				<th><span class="glyphicon glyphicon-list-alt"></span> <s:message
-						code="label.sno" /></th>
+				<th><s:message code="label.sno" /></th>
 				
-				<th><span class="glyphicon glyphicon-book"></span> <s:message
-						code="label.programName1" /></th>
+				<th><s:message code="label.Action" />
+					<div style="margin-left: 2">
+						<button type="button" class="btn btn-info" data-toggle="collapse"
+							data-target="#demo,#demo1">
+							<span class="glyphicon glyphicon-filter"></span>
+						</button>
+					</div>
+					<div id="demo"  class="collapse" style="margin-left: 50; margin-top: -27">
+						  <button type="submit" class="btn btn-primary" name="operation" value="Search">
+							<span class="glyphicon glyphicon-search"></span>
+						  </button>
+					</div>
+				</th>
 				
-				<th><span class="glyphicon glyphicon-user"></span> <s:message
-						code="label.firstName" /></th>
+				<th><s:message code="label.programName1" />
+				  <div id="demo"  class="collapse">
+				     <sf:select class="form-control" STYLE="width: 195px" size="0" path="programId">
+			           <sf:option value="" label="Select" />
+			           <sf:options items="${programList}" itemValue="id" itemLabel="name" />
+		             </sf:select>
+				  </div>
+				</th>
 				
-				<th><span class="glyphicon glyphicon-user"></span> <s:message
-						code="label.lastName" /></th>
+				<th><s:message code="label.firstName" />
+				   <div id="demo"  class="collapse">
+				      <sf:input path="firstName" class="form-control" id="inputEmail3" placeholder="First Name"/>
+				   </div>
+				</th>
 				
-				<th><span class="glyphicon glyphicon-envelope"></span> <s:message
-						code="label.email" /></th>
+				<th><s:message code="label.lastName" />
+				   <div id="demo"  class="collapse">
+				      <sf:input path="lastName" class="form-control" id="inputEmail3" placeholder="Last Name"/>
+				   </div>
+				</th>
 				
-				<th><span class="glyphicon glyphicon-envelope"></span> <s:message
-						code="label.address" /></th>		
+				<th><s:message code="label.email" />
+				   <div id="demo"  class="collapse">
+				      <sf:input path="email" class="form-control" id="inputEmail3" placeholder="EmailId"/>
+				   </div>
+				</th>
 				
-				<th><span class="glyphicon glyphicon-edit"></span> <s:message
-						code="label.edit" /></th>
+				<th><s:message code="label.mobileNo" />
+				   <div id="demo"  class="collapse">
+				      <sf:input path="mobileNo" class="form-control" id="inputEmail3" placeholder="Mobile No."/>
+				   </div>
+				</th>
+				
+				<th><s:message code="label.address" />
+				   <div id="demo"  class="collapse">
+				      <sf:input path="address" class="form-control" id="inputEmail3" placeholder="Address"/>
+				   </div>
+				</th>		
+				
+				
 			</tr>
 
 			<c:forEach items="${list}" var="trainer" varStatus="ct">
@@ -101,23 +105,31 @@
 					<td><input type="checkbox" name="ids" value="${trainer.id}"></td>
 					<td><c:out
 							value="${(form.pageSize * (form.pageNo-1))+ct.index+1}" /></td>
+							
+					 <td class="dropdown"><a class="btn btn-default actionButton" data-toggle="dropdown"> Action </a>
+						 <ul class="dropdown-menu" role="menu" id="contextMenu">
+
+							<li><a tabindex="-1" href="${editUrl}${trainer.id}"> <s:message
+										code="label.edit" />
+							</a></li>
+
+					     </ul>
+					 </td>
 				
 					<td><c:out value="${trainer.programName}" /></td>
 					<td><c:out value="${trainer.firstName}" /></td>
 					<td><c:out value="${trainer.lastName}" /></td>
 					<td><c:out value="${trainer.email}" /></td>
+					<td><c:out value="${trainer.mobileNo}" /></td>
 					<td><c:out value="${trainer.address}" /></td>
 
-
-					<%--  <td><c:out value="${student.dob}" /></td> --%>
-					<td><a href="${editUrl}${trainer.id}"><span
-							class="glyphicon glyphicon-pencil"></span></a></td>
 				</tr>
 			</c:forEach>
 
 
 		</c:if>
 	</table>
+</div>	
 <c:if test="${!empty list}">
 	<button type="submit" class="btn btn-primary text-center "
 		name="operation" value="New">
@@ -133,6 +145,11 @@
 		<s:message code="label.delete"></s:message>
 	</button>
 </c:if>
+&nbsp;
+ <input type=button
+		onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/Trainer/search'"
+		value='Back' class="btn btn-primary">
+		
 	<div class="container" style="margin-top: 10; margin-left: -20;">
 		<ul class="pagination pagination-lg">
 			<c:forEach var="i" begin="1" end="${size}">

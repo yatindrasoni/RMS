@@ -7,7 +7,7 @@
 	function checkAll(master) {
 		var checked = master.checked;
 		var col = document.getElementsByTagName("INPUT");
-		for ( var i = 0; i < col.length; i++) {
+		for (var i = 0; i < col.length; i++) {
 			col[i].checked = checked;
 		}
 	}
@@ -34,133 +34,217 @@
 	<sf:hidden path="pageNo" />
 	<sf:hidden path="pageSize" />
 
-	<div class="form-group" style="margin-top: 20">
-		
-		<sf:label path="firstName" for="inputPassword3">
-			<s:message code="label.firstName"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="firstName" class="form-control" id="inputEmail3" />
-		&emsp;
-	
-		<sf:label path="lastName" for="inputPassword3">
-			<s:message code="label.lastName"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="lastName" class="form-control" id="inputEmail3" />
-		&emsp;
-		
-	</div>
-
-	<button type="submit" class="btn btn-primary" name="operation" value="Search" style="margin-top: 20">
-		<span class="glyphicon glyphicon-search"></span> Search
-	</button>
-	<br>
-	<br>
-
-<div class="table-responsive">
-	<table class="table table-striped table-bordered">
-		<c:if test="${!empty list}">
-			<tr>
-				<th><input type="checkbox" onclick="checkAll(this)" />&emsp;
-				  <div style="margin-left: 30; margin-top: -23" >
-				    <span class="glyphicon glyphicon-check"></span>
-				  </div>  
-				</th>
-				
-				     <th><s:message code="label.sno" /></th>
-				     <th><s:message code="label.Action" /></th>
-				     <th><s:message code="label.firstName" /></th>
-				     <th><s:message code="label.lastName" /></th>	
-				     <th><s:message code="label.email" /></th>
-					 <th><s:message code="label.gender" /></th>
-					 <th><s:message code="label.contactNo" /></th>
-				     <th><s:message code="label.aadharNo" /></th>
-					 <th><s:message code="label.address" /></th>
-				     <th><s:message code="label.country" /></th>
-					 <th><s:message code="label.state" /></th>
-					 <th><s:message code="label.city" /></th>
-					 <th><s:message code="label.collegeName2" /></th>
-					 <th><s:message code="label.branch" /></th>
-					 <th><s:message code="label.semester" /></th>						
-				
-				<%-- <th><span class="glyphicon glyphicon-edit"></span> <s:message
-						code="label.edit" /></th> --%>
-			</tr>
-
-			<c:forEach items="${list}" var="candidate" varStatus="ct">
-				
-				<c:url var="populate" value="/ctl/Candidate/fetch">
-							<c:param name="candidatePopulate" value="${candidate.firstName}" />
-							<c:param name="populate" value="${candidate.lastName}" />
-							<c:param name="EmailPopulate" value="${candidate.email}" />
-				</c:url>
-				
+	<div class="table-responsive">
+		<table class="table table-striped table-bordered">
+			<c:if test="${!empty list}">
 				<tr>
-					<td><input type="checkbox" name="ids" value="${candidate.id}"></td>
+					<th><input type="checkbox" onclick="checkAll(this)" />&emsp;
+						<div style="margin-left: 30; margin-top: -23">
+							<span class="glyphicon glyphicon-check"></span>
+						</div></th>
+
+					<th><s:message code="label.sno" /></th>
+					<th><s:message code="label.Action" />
+						<div style="margin-left: 2">
+							<button type="button" class="btn btn-info" data-toggle="collapse"
+								data-target="#demo,#demo1">
+								<span class="glyphicon glyphicon-filter"></span>
+							</button>
+						</div>
+						<div id="demo" class="collapse"
+							style="margin-left: 50; margin-top: -27">
+							<button type="submit" class="btn btn-primary" name="operation"
+								value="Search">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</div>
+					</th>
 					
-					<td><c:out value="${(form.pageSize * (form.pageNo-1))+ct.index+1}" /></td>
-				                      
-				               <td class="dropdown"><a class="btn btn-default actionButton"
-								data-toggle="dropdown"> Action </a>
-								<ul class="dropdown-menu" role="menu" id="contextMenu">
-
-									<li><a tabindex="-1" href="${editUrl}${candidate.id}">
-											<s:message code="label.edit" />
-									</a></li>
-
-									<li><a href="${populate}"> <s:message
-												code="label.assignProgram" />
-									</a></li>
-
-									<li><a href="<c:url value="/ctl/AssignPrograms/search" />"><s:message
-											code="label.listAssignPrograms" />
-									</a></li>
-
-
-								</ul></td> 
-				                     
+					<th><s:message code="label.firstName2" />
+					  <div id="demo" class="collapse">
+					     <sf:input path="firstName" class="form-control" id="inputEmail3" placeholder="First Name"/>
+					  </div>
+					</th>
 					
-					        <td><c:out value="${candidate.firstName}" /></td>
-							<td><c:out value="${candidate.lastName}" /></td>
-							<td><c:out value="${candidate.email}" /></td>
-							<%-- <td><c:out value="${candidate.dob}" /></td> --%>
-							<td><c:out value="${candidate.gender}" /></td>
-							<td><c:out value="${candidate.contactNo}" /></td>
-							<td><c:out value="${candidate.aadharNo}" /></td>
-							<td><c:out value="${candidate.address}" /></td>
-							<td><c:out value="${candidate.country}" /></td>
-							<td><c:out value="${candidate.state}" /></td>
-							<td><c:out value="${candidate.city}" /></td>
-							<td><c:out value="${candidate.collegeName}" /></td>
-							<td><c:out value="${candidate.branchName}" /></td>
-							<td><c:out value="${candidate.semester}" /></td>
+					<th><s:message code="label.lastName2" />
+					   <div id="demo" class="collapse">
+					     <sf:input path="lastName" class="form-control" id="inputEmail3" placeholder="Last Name"/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.email" />
+					   <div id="demo" class="collapse">
+					     <sf:input path="email" class="form-control" id="inputEmail3" placeholder="EmailId"/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.gender" />
+					    <div id="demo" class="collapse">
+					     <sf:input path="gender" class="form-control" id="inputEmail3" placeholder="Gender"/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.contactNo" />
+					   <div id="demo" class="collapse">
+					     <sf:input path="contactNo" class="form-control" id="inputEmail3" placeholder="Contact No."/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.aadharNo" />
+					   <div id="demo" class="collapse">
+					     <sf:input path="aadharNo" class="form-control" id="inputEmail3" placeholder="Aadhar No."/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.address" />
+					   <div id="demo" class="collapse">
+					     <sf:input path="address" class="form-control" id="inputEmail3" placeholder="Address"/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.country" />
+					  <div id="demo" class="collapse">
+					     <sf:input path="country" class="form-control" id="inputEmail3" placeholder="Country"/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.state" />
+					  <div id="demo" class="collapse">
+					     <sf:input path="state" class="form-control" id="inputEmail3" placeholder="State"/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.city" />
+					  <div id="demo" class="collapse">
+					     <sf:input path="city" class="form-control" id="inputEmail3" placeholder="City"/>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.collegeName2" />
+					  <div id="demo" class="collapse">
+					     <sf:input path="collegeName" class="form-control" id="inputEmail3" placeholder="College Name"/>
+					  </div> 
+					</th>
+					
+					<th><s:message code="label.branch" />
+					  <div id="demo" class="collapse">
+					     <sf:select class="form-control" STYLE="width: 193px" size="0" path="branchName">
+								<sf:option value="" label="Select" />
+								<sf:option value="Computer Science & Engineering"
+									label="Computer Science & Engineering" />
+								<sf:option value="Information Technology"
+									label="Information Technology" />
+								<sf:option value="Civil Engineering" label="Civil Engineering" />
+								<sf:option value="Electronics & Communication Engineering"
+									label="Electronics & Communication Engineering" />
+								<sf:option value="Electrical Engineering"
+									label="Electrical Engineering" />
+								<sf:option value="Electronics & Instrumentation Engineering"
+									label="Electronics & Instrumentation Engineering" />
+								<sf:option value="Mechanical Engineering"
+									label="Mechanical Engineering" />
+								<sf:option value="Automobile Engineering"
+									label="Automobile Engineering" />
+								<sf:option value="Bachelors in Computer Application"
+									label="Bachelors in Computer Application" />
+								<sf:option value="B.Sc.Computer Science"
+									label="B.Sc.Computer Science" />
+								<sf:option value="Master of Computer Application"
+									label="Master of Computer Application" />
+								<sf:option value="M.Sc. Computer Science"
+									label="M.Sc. Computer Science" />
+								<sf:option value="B.Com" label="B.Com" />
+								<sf:option value="M.com" label="M.com" />
+								<sf:option value="BBA" label="BBA" />
+								<sf:option value="MBA" label="MBA" />
+								<sf:option value="IT" label="IT" />
+								<sf:option value="Others" label="Others" />
+							</sf:select>
+					  </div>
+					</th>
+					
+					<th><s:message code="label.semester" />
+					   <div id="demo" class="collapse">
+					     <sf:input path="semester" class="form-control" id="inputEmail3" placeholder="Semester"/>
+					  </div>
+					</th>
 
 				</tr>
-			</c:forEach>
+
+				<c:forEach items="${list}" var="candidate" varStatus="ct">
+
+					<c:url var="populate" value="/ctl/Candidate/fetch">
+						<c:param name="candidatePopulate" value="${candidate.firstName}" />
+						<c:param name="populate" value="${candidate.lastName}" />
+						<c:param name="EmailPopulate" value="${candidate.email}" />
+					</c:url>
+
+					<tr>
+						<td><input type="checkbox" name="ids" value="${candidate.id}"></td>
+
+						<td><c:out
+								value="${(form.pageSize * (form.pageNo-1))+ct.index+1}" /></td>
+
+						<td class="dropdown"><a class="btn btn-default actionButton"
+							data-toggle="dropdown"> Action </a>
+							<ul class="dropdown-menu" role="menu" id="contextMenu">
+
+								<li><a tabindex="-1" href="${editUrl}${candidate.id}">
+										<s:message code="label.edit" />
+								</a></li>
+
+								<li><a href="${populate}"> <s:message
+											code="label.assignProgram" />
+								</a></li>
+
+								<li><a href="<c:url value="/ctl/AssignPrograms/search" />"><s:message
+											code="label.listAssignPrograms" /> </a></li>
 
 
-		</c:if>
-	</table>
-</div>	
-   <c:if test="${!empty list}">
-	<%--<button type="submit" class="btn btn-primary text-center "
+							</ul></td>
+
+
+						<td><c:out value="${candidate.firstName}" /></td>
+						<td><c:out value="${candidate.lastName}" /></td>
+						<td><c:out value="${candidate.email}" /></td>
+						<%-- <td><c:out value="${candidate.dob}" /></td> --%>
+						<td><c:out value="${candidate.gender}" /></td>
+						<td><c:out value="${candidate.contactNo}" /></td>
+						<td><c:out value="${candidate.aadharNo}" /></td>
+						<td><c:out value="${candidate.address}" /></td>
+						<td><c:out value="${candidate.country}" /></td>
+						<td><c:out value="${candidate.state}" /></td>
+						<td><c:out value="${candidate.city}" /></td>
+						<td><c:out value="${candidate.collegeName}" /></td>
+						<td><c:out value="${candidate.branchName}" /></td>
+						<td><c:out value="${candidate.semester}" /></td>
+
+					</tr>
+				</c:forEach>
+
+
+			</c:if>
+		</table>
+	</div>
+	<c:if test="${!empty list}">
+		<%--<button type="submit" class="btn btn-primary text-center "
 		name="operation" value="New">
 		<span class="glyphicon glyphicon-plus"></span>
 		<s:message code="label.new"></s:message>
 	</button> 
 &nbsp;&nbsp;--%>
-	
-	<button type="submit" class="btn btn-primary text-center "
-		name="operation" value="Delete">
-		<span class="glyphicon glyphicon-trash"></span>
-		<s:message code="label.delete"></s:message>
-	</button>
+
+		<button type="submit" class="btn btn-primary text-center "
+			name="operation" value="Delete">
+			<span class="glyphicon glyphicon-trash"></span>
+			<s:message code="label.delete"></s:message>
+		</button>
 	&nbsp;&nbsp;
-	 </c:if> 
-	
-	<input type=button onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/Candidate/search'" value='Back'
-				  class="btn btn-primary">
+	 </c:if>
+
+	<input type=button
+		onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/Candidate/search'"
+		value='Back' class="btn btn-primary">
 
 
 	<div class="container" style="margin-top: 10; margin-left: -20;">

@@ -43,7 +43,7 @@ public class TimeTableDAOHibImpl implements TimeTableDAOInt {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
+	
 	public long add(TimeTableDTO dto) {
 		log.debug("DAO add Started");
 		System.out.println("COURSE NAME IN ADD TIME TABLE DAO "+ dto.getProgramName());
@@ -203,7 +203,12 @@ public class TimeTableDAOHibImpl implements TimeTableDAOInt {
 		if (dto.getTrainerName() != null && dto.getTrainerName().length() > 0) {
 			c.add(Restrictions.like("trainerName", dto.getTrainerName() + "%"));
 		}
-		
+		if (dto.getTrainerId() > 0) {
+			c.add(Restrictions.eq("trainerId", dto.getTrainerId()));
+		}
+		if (dto.getTime() != null && dto.getTime().length() > 0) {
+			c.add(Restrictions.like("time", dto.getTime() + "%"));
+		}
 		/*
 		 * if (dto.getExaminationDate() != null) {
 		 * c.add(Restrictions.eq("examinationDate", dto.getExaminationDate())); }

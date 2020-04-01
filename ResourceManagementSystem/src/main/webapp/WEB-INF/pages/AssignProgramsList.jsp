@@ -7,7 +7,7 @@
 	function checkAll(master) {
 		var checked = master.checked;
 		var col = document.getElementsByTagName("INPUT");
-		for ( var i = 0; i < col.length; i++) {
+		for (var i = 0; i < col.length; i++) {
 			col[i].checked = checked;
 		}
 	}
@@ -34,87 +34,96 @@
 	<sf:hidden path="pageNo" />
 	<sf:hidden path="pageSize" />
 
-	<div class="form-group" style="margin-top: 20">
-		
-		<sf:label path="firstName" for="inputPassword3">
-			<s:message code="label.firstName"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="firstName" class="form-control" id="inputEmail3" />
-		&emsp;
-	
-		<sf:label path="lastName" for="inputPassword3">
-			<s:message code="label.lastName"></s:message>
-		</sf:label>
-		&emsp;
-		<sf:input path="lastName" class="form-control" id="inputEmail3" />
-		&emsp;
-		
-		 
-		<sf:label path="programId" for="inputPassword3">
-			<s:message code="label.programName1" />
-		</sf:label>
-
-		<sf:select class="form-control" STYLE="width: 195px" size="0"
-			path="programId">
-			<sf:option value="" label="Select" />
-			<sf:options items="${programList}" itemValue="id" itemLabel="name" />
-		</sf:select>
-		&emsp;
-	</div>
-
-	<button type="submit" class="btn btn-primary" name="operation" value="Search" style="margin-top: 20">
-		<span class="glyphicon glyphicon-search"></span> Search
-	</button>
-	<br>
-	<br>
-
+<div class="table-responsive">
 	<table class="table table-striped table-bordered">
 		<c:if test="${!empty list}">
 			<tr>
 				<th><input type="checkbox" onclick="checkAll(this)" />&emsp;<span
 					class="glyphicon glyphicon-check"></span></th>
-				
-				     <th><s:message code="label.sno" /></th>
-				     
-				     <th><s:message code="label.Action" /></th>
-				
-				     <th><s:message code="label.firstName" /></th>
-				
-				     <th><s:message code="label.lastName" /></th>
-						
-				     <th><s:message code="label.programName" /></th>		
-				
-				     <th><s:message code="label.fee" /></th>
-				
-				     <th><s:message code="label.paid" /></th>
-						
-				     <th><s:message code="label.due" /></th>		
-				
-				     <th><s:message code="label.discount" /></th>								
-				
-				<%-- <th><span class="glyphicon glyphicon-edit"></span> <s:message
-						code="label.edit" /></th> --%>
+
+				<th><s:message code="label.sno" /></th>
+
+				<th><s:message code="label.Action" />
+					<div style="margin-left: 2">
+						<button type="button" class="btn btn-info" data-toggle="collapse"
+							data-target="#demo,#demo1">
+							<span class="glyphicon glyphicon-filter"></span>
+						</button>
+					</div>
+					<div id="demo" class="collapse"
+						style="margin-left: 50; margin-top: -27">
+						<button type="submit" class="btn btn-primary" name="operation"
+							value="Search">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</div></th>
+
+				<th><s:message code="label.firstName2" />
+					<div id="demo" class="collapse">
+						<sf:input path="firstName" class="form-control" id="inputEmail3" placeholder="First Name" />
+					</div></th>
+
+				<th><s:message code="label.lastName2" />
+					<div id="demo" class="collapse">
+						<sf:input path="lastName" class="form-control" id="inputEmail3"
+							placeholder="Last Name" />
+					</div></th>
+
+				<th><s:message code="label.programName" />
+					<div id="demo" class="collapse">
+						<sf:select class="form-control" STYLE="width: 195px" size="0"
+							path="programId">
+							<sf:option value="" label="Select" />
+							<sf:options items="${programList}" itemValue="id"
+								itemLabel="name" />
+						</sf:select>
+					</div></th>
+
+				<th><s:message code="label.fee" />
+				   <div id="demo" class="collapse">
+					  <sf:input path="fee" class="form-control" id="inputEmail3" placeholder="Fee" />
+				   </div>
+				</th>
+
+				<th><s:message code="label.paid" />
+				   <div id="demo" class="collapse">
+					  <sf:input path="paid" class="form-control" id="inputEmail3" placeholder="Paid" />
+				   </div>
+				</th>
+
+				<th><s:message code="label.due" />
+				   <div id="demo" class="collapse">
+					  <sf:input path="due" class="form-control" id="inputEmail3" placeholder="Due" />
+				   </div>
+				</th>
+
+				<th><s:message code="label.discount" />
+				   <div id="demo" class="collapse">
+					  <sf:input path="discount" class="form-control" id="inputEmail3" placeholder="Discount" />
+				   </div>
+				</th>
+
 			</tr>
 
 			<c:forEach items="${list}" var="assignPrograms" varStatus="ct">
 				<tr>
 
-					<td><input type="checkbox" name="ids" value="${assignPrograms.id}"></td>
+					<td><input type="checkbox" name="ids"
+						value="${assignPrograms.id}"></td>
 					<td><c:out
 							value="${(form.pageSize * (form.pageNo-1))+ct.index+1}" /></td>
-				                      
-				               <td class="dropdown"><a class="btn btn-default actionButton"
-								data-toggle="dropdown"> Action </a>
-								<ul class="dropdown-menu" role="menu" id="contextMenu">
 
-									<li><a tabindex="-1" href="${editUrl}${assignPrograms.id}">
-											<s:message code="label.edit" />
-									</a></li>
+					<td class="dropdown"><a class="btn btn-default actionButton"
+						data-toggle="dropdown"> Action </a>
+						<ul class="dropdown-menu" role="menu" id="contextMenu">
 
-								</ul></td> 
-				                     
-					
+							<li><a tabindex="-1" href="${editUrl}${assignPrograms.id}">
+									<s:message code="label.edit" />
+							</a></li>
+
+						</ul></td>
+
+
 					<td><c:out value="${assignPrograms.firstName}" /></td>
 					<td><c:out value="${assignPrograms.lastName}" /></td>
 					<td><c:out value="${assignPrograms.programName}" /></td>
@@ -123,32 +132,30 @@
 					<td><c:out value="${assignPrograms.due}" /></td>
 					<td><c:out value="${assignPrograms.discount}" /></td>
 
-					<%-- <td><a href="${editUrl}${assignPrograms.id}"><span
-							class="glyphicon glyphicon-pencil"></span></a></td> --%>
 				</tr>
 			</c:forEach>
-
-
 		</c:if>
 	</table>
-   <c:if test="${!empty list}">
-	<%--<button type="submit" class="btn btn-primary text-center "
+</div>	
+	<c:if test="${!empty list}">
+		<%--<button type="submit" class="btn btn-primary text-center "
 		name="operation" value="New">
 		<span class="glyphicon glyphicon-plus"></span>
 		<s:message code="label.new"></s:message>
 	</button> 
 &nbsp;&nbsp;--%>
-	
-	<button type="submit" class="btn btn-primary text-center "
-		name="operation" value="Delete">
-		<span class="glyphicon glyphicon-trash"></span>
-		<s:message code="label.delete"></s:message>
-	</button>
+
+		<button type="submit" class="btn btn-primary text-center "
+			name="operation" value="Delete">
+			<span class="glyphicon glyphicon-trash"></span>
+			<s:message code="label.delete"></s:message>
+		</button>
 	&nbsp;&nbsp;
-	 </c:if> 
-	
-	<input type=button onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/Candidate/search'" value='Back'
-				  class="btn btn-primary">
+	 </c:if>
+
+	<input type=button
+		onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/AssignPrograms/search'"
+		value='Back' class="btn btn-primary">
 
 
 	<div class="container" style="margin-top: 10; margin-left: -20;">

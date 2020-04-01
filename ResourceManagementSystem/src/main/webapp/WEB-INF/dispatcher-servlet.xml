@@ -99,8 +99,8 @@
 		<property name="protocol" value="smtp" />
 
 		<property name="username"
-			value="yatindra.soni@gmail.com" />
-		<property name="password" value="99070710909993973698" />
+			value="shreyansh.soni.sdg@gmail.com" />
+		<property name="password" value="9893857253" />
 
 		<property name="javaMailProperties">
 			<props>
