@@ -66,7 +66,7 @@
 					placeholder="Address" />
 			</div>
 
-			<div class="text-right" style="margin-top: 1; margin-right: 103">
+			<div class="text-center">
 				<sf:errors path="address" cssClass="error"
 					class="control-label text-danger" for="inputError1" />
 			</div>
@@ -103,7 +103,7 @@
 
 			</div>
 
-			<div class="text-right" style="margin-top: 1; margin-right: 77">
+			<div class="text-center">
 				<sf:errors path="city" cssClass="error"
 					class="control-label text-danger" for="inputError1" />
 			</div>
@@ -119,7 +119,7 @@
 					id="inputEmail3" placeholder="Mobile No." />
 			</div>
 
-			<div class="text-right" style="margin-top: 1; margin-right: 61">
+			<div class="text-center">
 				<sf:errors path="mobileNo" cssClass="error"
 					class="control-label text-danger" for="inputError1" />
 			</div>
