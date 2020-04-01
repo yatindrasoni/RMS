@@ -72,11 +72,9 @@ public class UserCtl extends BaseCtl{
 	 */
 	@Override
 	public void preload(Model model) {
-		log.debug("UserCtl Preload() is start"); 
 		// Preload Role List
 		List list = roleService.search(new RoleDTO());
 		model.addAttribute("roleList", list);
-		log.debug("UserCtl Preload() is end");
 	}
 
 	/******************************* DISPLAY LOGIC(GET) ************************************/

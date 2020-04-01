@@ -7,13 +7,13 @@
 	function checkAll(master) {
 		var checked = master.checked;
 		var col = document.getElementsByTagName("INPUT");
-		for ( var i = 0; i < col.length; i++) {
+		for (var i = 0; i < col.length; i++) {
 			col[i].checked = checked;
 		}
 	}
 </script>
 <h2 class="container  text-center text-primary"
-	style="margin-top: -8; margin-left: -100;">
+	style="margin-top: -8; margin-left: -55;">
 	<b><span class="glyphicon glyphicon-th-list"></span>&emsp;<s:message
 			code="label.listRole"></s:message></b>
 </h2>
@@ -37,44 +37,36 @@
 	<sf:hidden path="pageNo" />
 	<sf:hidden path="pageSize" />
 
-	<div class="form-group" style="margin-left: -140;">
-
-
-		<sf:label path="roleName" for="inputPassword3">
-			<s:message code="label.rolename"></s:message>
-		</sf:label>
-		<sf:input path="roleName" class="form-control" id="inputEmail3"
-			placeholder="Name" />
-
-	</div>
-
-
-	<button type="submit" class="btn btn-primary" name="operation"
-		value="Search">
-		<span class="glyphicon glyphicon-search"></span>
-		<s:message code="label.search"></s:message>
-	</button>
-	<br>
-	<br>
-	<%-- <s:message code="label.name" />
-    <sf:input path="roleName" />
-
-    <input type="submit" value="Search" name="operation"> --%>
-
-	<table class="table table-inverse table-striped">
+<div class="table-responsive">	
+	<table class="table table-striped table-bordered">
 
 		<c:if test="${!empty list}">
 			<tr>
 				<th><input type="checkbox" onclick="checkAll(this)" />&emsp;<span
 					class="glyphicon glyphicon-check"></span></th>
-				<th><span class="glyphicon glyphicon-list-alt"></span> <s:message
-						code="label.sno" /></th>
-				<th><span class="glyphicon glyphicon-user"></span> <s:message
-						code="label.rolename" /></th>
-				<th><span class="glyphicon glyphicon-book"></span> <s:message
-						code="label.description" /></th>
-				<th><span class="glyphicon glyphicon-edit"></span> <s:message
-						code="label.edit" /></th>
+					
+				<th><s:message code="label.sno" /></th>
+				<th><s:message code="label.Action" />
+				
+					<div style="margin-left: 2">
+						<button type="button" class="btn btn-info" data-toggle="collapse"
+							data-target="#demo,#demo0,#demo1">
+							<span class="glyphicon glyphicon-filter"></span>
+						</button>
+					</div>
+					<div id="demo"  class="collapse" style="margin-left: 50; margin-top: -27">
+						  <button type="submit" class="btn btn-primary" name="operation" value="Search">
+							<span class="glyphicon glyphicon-search"></span>
+						  </button>
+					</div>
+				</th>
+				<th><s:message code="label.rolename" />
+				  <div id="demo0" class="collapse">
+				    <sf:input path="roleName" class="form-control" id="inputEmail3" placeholder="Role Name" />
+				  </div>  
+				</th>
+				
+				<th><s:message code="label.description" /></th>
 			</tr>
 
 			<c:forEach items="${list}" var="role" varStatus="ct">
@@ -83,53 +75,45 @@
 					<td><input type="checkbox" name="ids" value="${role.id}"></td>
 					<td><c:out
 							value="${(form.pageSize * (form.pageNo-1))+ct.index+1}" /></td>
+
+					<td class="dropdown"><a class="btn btn-default actionButton"
+						data-toggle="dropdown"> Action </a>
+						<ul class="dropdown-menu" role="menu" id="contextMenu">
+
+							<li><a tabindex="-1" href="${editUrl}${role.id}"> <s:message
+										code="label.edit" />
+							</a></li>
+
+						</ul>
+					</td>
 					<td><c:out value="${role.name}" /></td>
 					<td><c:out value="${role.description}" /></td>
-					<td><a href="${editUrl}${role.id}"><span
-							class="glyphicon glyphicon-pencil"></span></a></td>
+					
 				</tr>
 			</c:forEach>
-
-			<!--             <tr>
-                <td align="left">
-                <button type="submit" class="btn btn-primary pull-left"
-		name="operation" value="Previous">Previous</button>
-                </td>
-                 
-		
-                <td align="center" colspan="3">
-                <button type="submit" class="btn btn-primary text-center "
-		name="operation" value="/ctl/Role">New</button>
-               
-                    
-                    
-         <button type="submit" class="btn btn-primary text-center "
-name="operation" value="Delete">Delete</button>
-          </td>
-          
-          
-
-                <td align="right">
-                <button type="submit"class="btn btn-primary pull-right"name="operation" value="Next">Next</button>
-                </td>
-            </tr>
- -->
 		</c:if>
 
 	</table>
+</div>	
+  <div style="margin-left: -80">
 	<c:if test="${!empty list}">
-	<button type="submit" class="btn btn-primary text-center"
-		name="operation" value="New">
-		<span class="glyphicon glyphicon-plus"></span>
-		<s:message code="label.new"></s:message>
-	</button>
+		<button type="submit" class="btn btn-primary text-center"
+			name="operation" value="New">
+			<span class="glyphicon glyphicon-plus"></span>
+			<s:message code="label.new"></s:message>
+		</button>
 &nbsp;&nbsp;
 	<button type="submit" class="btn btn-primary text-center"
-		name="operation" value="Delete">
-		<span class="glyphicon glyphicon-trash"></span>
-		<s:message code="label.delete"></s:message>
-	</button>
-</c:if>	
+			name="operation" value="Delete">
+			<span class="glyphicon glyphicon-trash"></span>
+			<s:message code="label.delete"></s:message>
+		</button>
+	</c:if>
+	&nbsp;
+	 <input type=button
+		onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/Role/search'"
+		value='Back' class="btn btn-primary">
+</div>
 
 	<div class="container" style="margin-top: 10; margin-left: -15;">
 		<ul class="pagination pagination-lg">

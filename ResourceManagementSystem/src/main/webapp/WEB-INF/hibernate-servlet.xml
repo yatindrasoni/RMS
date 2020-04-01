@@ -13,7 +13,7 @@
 	<!--Data Connection Pool and Trasnsaction handling start -->
 	<bean id="dataSourceC3P0" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl"  value="jdbc:mysql://localhost:3306/rms_db" />
+		<property name="jdbcUrl"  value="jdbc:mysql://localhost:3306/rms_database" />
 		<property name="user"  value="root" />
 		<property name="password" value="root" />
 		<property name="acquireIncrement" value="2" />

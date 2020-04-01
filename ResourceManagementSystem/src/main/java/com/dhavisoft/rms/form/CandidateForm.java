@@ -33,7 +33,7 @@ public class CandidateForm extends BaseForm{
 
 	private String email;
 
-	private String branch;
+	private String branchName;
 
 	private String gender;
 	
@@ -93,12 +93,13 @@ public class CandidateForm extends BaseForm{
 		this.email = email;
 	}
 
-	public String getBranch() {
-		return branch;
+	
+	public String getBranchName() {
+		return branchName;
 	}
 
-	public void setBranch(String branch) {
-		this.branch = branch;
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
 	}
 
 	public String getGender() {
@@ -183,7 +184,7 @@ public class CandidateForm extends BaseForm{
 		dto.setDob(dob);
 		dto.setContactNo(contactNo);
 		dto.setEmail(email);
-		dto.setBranchName(branch);
+		dto.setBranchName(branchName);
 		dto.setGender(gender);
 		dto.setAddress(address);
 		dto.setCountry(country);
@@ -207,7 +208,7 @@ public class CandidateForm extends BaseForm{
 		dob = dto.getDob();
 		contactNo = dto.getContactNo();
 		email = dto.getEmail();
-		branch = dto.getBranchName();
+		branchName = dto.getBranchName();
 		gender = dto.getGender();
 		address = dto.getAddress();
 		country = dto.getCountry();

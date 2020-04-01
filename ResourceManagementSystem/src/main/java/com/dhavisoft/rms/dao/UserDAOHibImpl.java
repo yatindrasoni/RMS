@@ -176,6 +176,9 @@ public class UserDAOHibImpl implements UserDAOInt {
 		if (dto.getPassword() != null && dto.getPassword().length() > 0) {
 			c.add(Restrictions.like("password", dto.getPassword() + "%"));
 		}
+		if (dto.getMobileNo() != null && dto.getMobileNo().length() > 0) {
+			c.add(Restrictions.like("mobileNo", dto.getMobileNo() + "%"));
+		}
 		if (dto.getGender() != null && dto.getGender().length() > 0) {
 			c.add(Restrictions.like("gender", dto.getGender() + "%"));
 		}

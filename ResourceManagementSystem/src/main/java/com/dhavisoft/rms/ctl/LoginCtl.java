@@ -75,8 +75,7 @@ public class LoginCtl extends BaseCtl {
 	 * @return
 	 */
 	@RequestMapping(value = "/Login", method = RequestMethod.GET)
-	public String display(@ModelAttribute("form") LoginForm form,
-			HttpSession session, Model model) {
+	public String display(@ModelAttribute("form") LoginForm form, HttpSession session, Model model) {
 		log.debug("Login Submit Started");
 		session.invalidate();
 		return "Login";

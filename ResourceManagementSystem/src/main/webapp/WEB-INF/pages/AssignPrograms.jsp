@@ -51,37 +51,29 @@
 				<div class="row" style="margin-bottom: -50">
 
 					<div class="col-sm-4">
-						<sf:label path="firstName" class="col-sm-5 control-label">
-							<%--  class="col-sm-3 control-label" --%>
-							<div class="text-left" style="margin-left: 32;">
-								<s:message code="label.firstName1"></s:message>
-							</div>
-						</sf:label>
-						<div class="col-sm-4" style="margin-left: 15;">
+						<div class="input-group" style="margin-right: 10;">
+						  <span class="input-group-addon"> 
+			                <span class="glyphicon glyphicon-user"></span>
+			              </span>
 							<sf:input path="firstName" class="form-control" id="inputEmail3"
 								value="${sessionScope.firstName }" readonly="true" />
-
 						</div>
-
-						<div class="text-right" style="margin-top: 35; margin-right: 15">
+						<div class="text-right" style="margin-top: 1; margin-right: 15">
 							<sf:errors path="firstName" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
 					</div>
 
 					<div class="col-sm-4">
-						<sf:label path="lastName" class="col-sm-5 control-label">
-							<div class="text-left" style="margin-left: 22;">
-								<s:message code="label.lastName1"></s:message>
-							</div>
-						</sf:label>
-						<div class="col-sm-4" style="margin-left: -5;">
+						<div class="input-group" style="margin-right: 29;">
+						  <span class="input-group-addon"> 
+			                <span class="glyphicon glyphicon-user"></span>
+			              </span>
 							<sf:input path="lastName" class="form-control" id="inputEmail3"
 								value="${sessionScope.lastName}" readonly="true" />
-
 						</div>
 
-						<div class="text-right" style="margin-top: 35; margin-right: 38">
+						<div class="text-right" style="margin-top: 1; margin-right: 38">
 							<sf:errors path="lastName" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
@@ -90,12 +82,10 @@
 					
 
 					<div class="col-sm-4">
-						<sf:label path="programId" class="col-sm-5 control-label">
-							<div class="text-left" style="margin-left: 4;">
-								<s:message code="label.programName"></s:message>
-							</div>
-						</sf:label>
-						<div class="col-sm-4" style="margin-left: -30;">
+						<div class="input-group" style="margin-right: 60;">
+						  <span class="input-group-addon"> 
+			                <span class="glyphicon glyphicon-user"></span>
+			              </span>
 							<sf:select class="form-control" STYLE="width: 195px" size="0" path="programId">
 								<sf:option value="" label="Select" />
 								<sf:options items="${programList}" itemValue="id"
@@ -103,27 +93,24 @@
 							</sf:select>
 						</div>
 
-						<div class="text-right" style="margin-top: 35; margin-right: 30">
+						<div class="text-right" style="margin-top: 1; margin-right: 178">
 							<sf:errors path="programId" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
 					</div>
 
 				</div>
-				<div class="row" style="margin: 70;">
+				 <div class="row" style="margin: 80;">
 
 					<div class="col-sm-4">
-						<sf:label path="fee" class="col-sm-5 control-label">
-							<div class="text-left" style="margin-left: -52;">
-								<s:message code="label.fee"></s:message>
-							</div>
-						</sf:label>
-
-						<div class="col-sm-4" style="margin-left: -45;">
-							<sf:input path="fee" class="form-control" id="inputEmail3" />
+						<div class="input-group" style="margin-right: 44;">
+						  <span class="input-group-addon"> 
+			                 <span style="font-size:22px">&#8377;</span>
+			              </span>
+							<sf:input path="fee" class="form-control" id="inputEmail3" placeholder="Fee"/>
 						</div>
 
-						<div class="text-right" style="margin-top: 35; margin-right: 99">
+						<div class="text-right" style="margin-top: 1; margin-right: 174">
 							<sf:errors path="fee" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
@@ -131,35 +118,26 @@
 
 
 					<div class="col-sm-4">
-						<sf:label path="paid" class="col-sm-5 control-label">
-							<div class="text-left" style="margin-left: -5;">
-								<s:message code="label.paid"></s:message>
-							</div>
-						</sf:label>
-						<div class="col-sm-4" style="margin-left: -10;">
-							<sf:input path="paid" maxlength="10" class="form-control"
-								id="inputEmail3" />
-
+						<div class="input-group" style="margin-right: -2;">
+						  <span class="input-group-addon"> 
+			                <span style="font-size:22px">&#8377;</span>
+			              </span>
+							<sf:input path="paid" class="form-control" id="inputEmail3" placeholder="Paid"/>
 						</div>
-
-						<div class="text-right" style="margin-top: 35; margin-right: 57">
+						<div class="text-right" style="margin-top: 1; margin-right: 121">
 							<sf:errors path="paid" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
 					</div>
 
 					<div class="col-sm-4">
-						<sf:label path="due" class="col-sm-6 control-label">
-							<div class="text-left" style="margin-left: 32;">
-								<s:message code="label.due"></s:message>
-							</div>
-						</sf:label>
-						<div class="col-sm-4" style="margin-left: -5;">
-							<sf:input path="due" class="form-control" id="inputEmail3" />
-
+						<div class="input-group" style="margin-right: -44;">
+						  <span class="input-group-addon"> 
+			               <span style="font-size:22px">&#8377;</span>
+			              </span>
+							<sf:input path="due" class="form-control" id="inputEmail3" placeholder="Due"/>
 						</div>
-
-						<div class="text-right" style="margin-top: 35; margin-right: 29">
+						<div class="text-right" style="margin-top: 1; margin-right: 84">
 							<sf:errors path="due" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
@@ -170,34 +148,27 @@
 				<div class="row" style="margin-top: -50">
 
 					<div class="col-sm-4">
-						<sf:label path="discount" class="col-sm-5 control-label">
-							<div class="text-left" style="margin-left: 33;">
-								<s:message code="label.discount"></s:message>
-							</div>
-						</sf:label>
-						<div class="col-sm-4" style="margin-left: 15;">
-							<sf:input path="discount" class="form-control" id="inputEmail3" />
-
+						<div class="input-group" style="margin-right: 12;">
+						  <span class="input-group-addon"> 
+			               <span style="font-size:22px">&#8377;</span>
+			              </span>
+							<sf:input path="discount" class="form-control" id="inputEmail3" placeholder="Discount"/>
 						</div>
-
-						<div class="text-right" style="margin-top: 35; margin-right: 30">
+						<div class="text-right" style="margin-top: 1; margin-right: 102">
 							<sf:errors path="discount" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
 					</div>
 					
-					
 						<div class="col-sm-4" style="margin-left: -5;">
 							<sf:input path="email" type="hidden" class="form-control" id="inputEmail3" value="${sessionScope.email}" readonly="true" />
-
 						</div>
-
-
+						
 				</div>
 
 
 				<div class="row" style="margin: 40;">
-					<div class="col-sm-offset-2 col-sm-10" style="margin-left: -180;">
+					<div class="col-sm-offset-2 col-sm-10" style="margin-left: -230;">
 						<button type="submit" class="btn btn-primary" name="operation"
 							value="Save">
 							<span class="glyphicon glyphicon-floppy-save"></span>

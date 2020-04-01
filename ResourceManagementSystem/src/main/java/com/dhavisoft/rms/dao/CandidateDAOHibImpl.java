@@ -175,6 +175,9 @@ public class CandidateDAOHibImpl implements CandidateDAOInt {
 		if (dto.getAadharNo() != null && dto.getAadharNo().length() > 0) {
 			c.add(Restrictions.like("aadharNo", dto.getAadharNo() + "%"));
 		}
+		if (dto.getCollegeName() != null && dto.getCollegeName().length() > 0) {
+			c.add(Restrictions.like("collegeName", dto.getCollegeName() + "%"));
+		}
 
 		c.addOrder(Order.desc("id"));
 

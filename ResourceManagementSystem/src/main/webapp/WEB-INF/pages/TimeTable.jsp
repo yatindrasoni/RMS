@@ -13,7 +13,7 @@
 			</c:when>
 
 			<c:otherwise>
-				<b><s:message code="label.addTimeTable"></s:message></b>
+				<b style="margin-left: -40"><s:message code="label.addTimeTable"></s:message></b>
 			</c:otherwise>
 
 		</c:choose>
@@ -33,8 +33,9 @@
 </div>
 
 
-<div class="col-sm-offset-4">
-	<sf:form action="TimeTable" method="POST" class="form-horizontal"
+<div class="container">
+	<div>
+	<sf:form action="TimeTable" method="POST" class="form-inline"
 		commandName="form" id="sandbox-container">
 
 		<sf:hidden path="id" />
@@ -43,15 +44,18 @@
 		<sf:hidden path="createdDatetime"></sf:hidden>
 		<sf:hidden path="modifiedDatetime"></sf:hidden>
 		
+	<div class="row" style="margin-top: 10">
+
+	   <div class="row" style="margin-bottom: -50">
 	
-		<div class="form-group">
+		<div class="col-sm-4">
 			<sf:label path="programId" class="col-sm-3 control-label">
-				<div class="text-left" style="margin-left: 10;">
+				<div class="text-left" style="margin-right: -70;">
 					<s:message code="label.programName"></s:message>
 				</div>
 			</sf:label>
 			
-			<div class="col-sm-4" style="margin-left: 10;">
+			<div class="col-sm-4" style="margin-left: 40;">
 				<sf:select class="form-control" STYLE="width: 195px" size="0"
 					path="programId">
 					<sf:option value="" label="Select" />
@@ -59,19 +63,19 @@
 				</sf:select>
 			</div>
 			
-			<div class="text-right">
+			<div class="text-right" style="margin-top: 35; margin-right: 105">
 			  <sf:errors path="programId" cssClass="error"
 				class="control-label text-danger" for="inputError" />
 			</div>	
 		</div>
 		
-		<div class="form-group">
+		<div class="col-sm-4">
 			<sf:label path="trainerId" class="col-sm-3 control-label ">
-				<div class="text-left" style="margin-left: 10;">
+				<div class="text-right" style="margin-right: -60;">
 					<s:message code="label.trainerName"></s:message>
 				</div>
 			</sf:label>
-			<div class="col-sm-4" style="margin-left: 10;">
+			<div class="col-sm-4" style="margin-left: 50;">
 				
 				<sf:select class="form-control" STYLE="width: 193px" size="0"
 					path="trainerId">
@@ -80,42 +84,19 @@
 				</sf:select>
 			</div>
 			
-			<div class="text-right control-label">
+			<div class="text-right" style="margin-top: 35; margin-right: 95">
 			  <sf:errors path="trainerId" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
 		
-		<%-- <div class="form-group">
-			<label class="col-sm-3 control-label">
-				<div class="text-left" style="margin-left: 10;">
-					<s:message code="label.examDate" />
-				</div>
-			</label>
-			<div class="col-sm-4" style="margin-left: 10;">
-				<div class="input-group date">
-					<sf:input class="form-control" path="examinationDate" id="dob"
-						readonly="true" />
-					<span class="input-group-addon" id="basic-addon2"> <span
-						class="glyphicon glyphicon-calendar"></span>
-					</span>
-				</div>
-			</div>
-			
-			<div class="text-right">
-			    <sf:errors path="examinationDate" cssClass="error"
-				class="control-label text-danger" for="inputError1" />
-			</div>	
-		</div> --%>
-
-
-		<div class="form-group">
+		<div class="col-sm-4">
 			<sf:label path="time" class="col-sm-3 control-label">
-				<div class="text-left" style="margin-left: 10;">
+				<div class="text-right" style="margin-right: -30;">
 					<s:message code="label.time"></s:message>
 				</div>
 			</sf:label>
-			<div class="col-sm-4" style="margin-left: 10;">
+			<div class="col-sm-4" style="margin-left: 20;">
 				<sf:select class="form-control" STYLE="width: 195px" size="0"
 					path="time">
 					<sf:option value="" label="Select" />
@@ -124,13 +105,15 @@
 				</sf:select>
 			</div>
 			
-			<div class="text-right">
+			<div class="text-right" style="margin-top: 35; margin-right: 117">
 			   <sf:errors path="time" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
 
-		<div class="col-sm-offset-2 col-sm-10" style="margin-left: -145; margin-top: 30;">
+     </div>
+     
+		<div class="col-sm-offset-2 col-sm-10" style="margin-left: -240; margin-top: 30;">
 			<button type="submit" style="margin-left: 20;"
 				class="btn btn-primary" name="operation" value="Save">
 				<span class="glyphicon glyphicon-floppy-save"></span>
@@ -142,13 +125,8 @@
 				<span class="glyphicon glyphicon-remove"></span>
 				<s:message code="label.cancel"></s:message>
 			</button>
-
-			<%-- 			<c:if test="${form.id > 0}">
-				<button type="submit" class="btn btn-primary" name="operation"
-					value="Delete">Delete</button>
-			</c:if>
- --%>
 		</div>
-
+      </div>
 	</sf:form>
+</div>
 </div>

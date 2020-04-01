@@ -100,7 +100,7 @@ public class CollegeForm extends BaseForm{
 		dto.setAddress(address);
 		dto.setCity(city);
 		dto.setState(state);
-		dto.setPhoneNo(mobileNo);
+		dto.setMobileNo(mobileNo);
 		return dto;
 	}
 
@@ -115,7 +115,7 @@ public class CollegeForm extends BaseForm{
 		address = dto.getAddress();
 		city = dto.getCity();
 		state = dto.getState();
-		mobileNo = dto.getPhoneNo();
+		mobileNo = dto.getMobileNo();
 
 		super.populate(bDto);
 	}

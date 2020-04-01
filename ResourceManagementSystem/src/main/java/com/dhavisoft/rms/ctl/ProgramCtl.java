@@ -118,7 +118,7 @@ private static Logger log = Logger.getLogger(ProgramCtl.class);
 				ProgramDTO dto = (ProgramDTO) form.getDto();
 				
 				if (dto.getId() > 0) {
-					return "redirect:/Program/search";
+					return "redirect:Program/search";
 				}
 				else {
 					return "redirect:Program";

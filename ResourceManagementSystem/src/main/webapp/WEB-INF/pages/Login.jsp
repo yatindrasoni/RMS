@@ -26,15 +26,10 @@
 		commandName="form">
 
 		<div class="form-group" style="margin-right: -160;">
-
-			<%-- <div>
-				<b><s:message code="label.emailId" /></b>
-			</div> --%>
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-user"></span>
 				</span>
-				<%-- <s:message code="label.emailId"  /> --%>
 				<sf:input path="emailId" class="form-control" placeholder="Login Id" />
 			</div>
 			

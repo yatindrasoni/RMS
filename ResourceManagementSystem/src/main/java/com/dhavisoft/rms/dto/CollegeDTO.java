@@ -42,8 +42,8 @@ public class CollegeDTO extends BaseDTO {
 	/**
 	 * Phoneno of College
 	 */
-	@Column(name = "PHONE_NO", length = 50)
-	private String phoneNo;
+	@Column(name = "MOBILE_NO", length = 50)
+	private String mobileNo;
 
 	/**
 	 * accessor
@@ -80,12 +80,12 @@ public class CollegeDTO extends BaseDTO {
 		this.city = city;
 	}
 
-	public String getPhoneNo() {
-		return phoneNo;
+	public String getMobileNo() {
+		return mobileNo;
 	}
 
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
 	}
 
 	public String getKey() {
