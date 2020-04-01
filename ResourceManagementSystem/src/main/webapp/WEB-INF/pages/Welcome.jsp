@@ -31,7 +31,7 @@ body{
 	
 	
  <div class="w3-container w3-center w3-animate-zoom ">
-     <div class="text-left" style="margin-left: 200;">
+     <div class="text-center">
 	<H1 align="center" style="color: white">
 	<s:message code="label.RMSWelcome"></s:message></H1>
    </div>
