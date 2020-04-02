@@ -3,14 +3,11 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 <%@ page isELIgnored="false"%>
-<%-- <div class="text-center pull-center">
 
-	<h2 class="error">${error}</h2>
-</div> --%>
 <div class=" col-sm-offset-4 col-sm-7">
-	<!-- <h1 class="col-sm-offset-2 text-primary">Login</h1> -->
 	
-	<div class="col-sm-offset-2" style="margin-right: 250;">
+	
+	<div class="text-center" style="margin-right: 130;">
 		<img
 			src="http://localhost:8080/ResourceManagementSystem/resource/images/login2.png"
 			alt="Brand" width="100" height="100">
@@ -24,6 +21,8 @@
 	<br>
 	<sf:form class="form-horizontal col-sm-6" action="Login" method="post"
 		commandName="form">
+
+<div class="row text-center">
 
 		<div class="form-group" style="margin-right: -160;">
 			<div class="input-group">
@@ -79,6 +78,7 @@
 
 
 		</div>
+</div>		
 
 	</sf:form>
 </div>

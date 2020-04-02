@@ -4,7 +4,7 @@
 
 <%@page isELIgnored="false"%>
 
-<div class="text-center" style="margin-right: -260; margin-top: -30;">
+<div class="text-center" style="margin-left: 300">
 	<h1 class="text-primary">
 
 		<c:choose>
@@ -38,7 +38,7 @@
 		<sf:hidden path="createdDatetime"></sf:hidden>
 		<sf:hidden path="modifiedDatetime"></sf:hidden>
 
-   <div class="row" style="margin-right: -240">
+   <div class="row text-center" style="margin-left: 240">
 
 		<div class="col-sm-4">
 			<div class="input-group">
@@ -48,7 +48,7 @@
 				<sf:input path="roleName" class="form-control" id="inputEmail3" placeholder="Role Name"/>
 			</div>
 			
-			<div class="text-right" style="margin-right: 62; margin-top: 1">
+			<div class="text-center">
 			  <sf:errors path="roleName" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -63,16 +63,17 @@
 				<sf:input path="roleDescription" class="form-control" id="inputEmail3" placeholder="Description"/>
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 18">
+			<div class="text-center">
 			 <sf:errors path="roleDescription" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
 		
 	</div>	
+	<br>
+	<br>
 
-		<div class="text-left" style="margin-left: 200; margin-top: 30;">
-		  <div class="col-sm-offset-2 col-sm-10" >
+		<div class="text-center" style="margin-right: 30">
 			<button type="submit" style="margin-left: 45;" class="btn btn-primary" name="operation" value="Save">
 				<span class="glyphicon glyphicon-floppy-save"></span>
 				<s:message code="label.save"></s:message>
@@ -83,7 +84,6 @@
 				<span class="glyphicon glyphicon-remove"></span>
 				<s:message code="label.cancel"></s:message>
 			</button>
-		</div>
 		</div>
 
 	</sf:form>
