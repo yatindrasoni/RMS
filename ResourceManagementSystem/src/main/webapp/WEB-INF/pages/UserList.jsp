@@ -135,19 +135,13 @@
 		</table>
 	</div>
 
-	<%-- <c:if test="${form.pageNo==1}">
-		<button type="submit" class="btn btn-primary text-center"
-			name="operation" value="Previous">
-			<span class="glyphicon glyphicon-plus"></span> Previous
-		</button>
-	</c:if> --%>
 	<c:if test="${!empty list}">
 		<button type="submit" class="btn btn-primary text-center"
 			name="operation" value="New">
 			<span class="glyphicon glyphicon-plus"></span>
 			<s:message code="label.new"></s:message>
 		</button>
-	&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 	<button type="submit" style="margin-left: -20;"
 			class="btn btn-primary text-center " name="operation" value="Delete">
@@ -156,15 +150,10 @@
 		</button>
 	</c:if>
 	&nbsp;
-	 <input type=button
-		onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/User/search'"
-		value='Back' class="btn btn-primary">
+	 <input type=button onClick="parent.location='http://localhost:8080/ResourceManagementSystem/ctl/User/search'"
+		value='Back' class="btn btn-primary text-center">
 
-	<%-- <button type="submit" class="btn btn-primary text-center"
-		name="operation" value="Next">
-		<span class="glyphicon glyphicon-plus"></span> Next
-	</button>
- --%>
+	
 	<div class="container" style="margin-top: 10; margin-left: -20;">
 		<ul class="pagination pagination-lg">
 			<c:forEach var="i" begin="1" end="${size}">

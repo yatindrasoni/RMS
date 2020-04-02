@@ -5,7 +5,7 @@
 <%@ page isELIgnored="false"%>
 
 
-<div class="text-center " style="margin-top: -30; margin-right: -210;">
+<div class="text-center">
 	<h1 class="text-primary">
 		<b><s:message code="label.UserRegister"></s:message></b>
 	</h1>
@@ -26,7 +26,7 @@
 
 		<sf:hidden path="id" />
      
-       <div class="row" style="margin-right: -140"> 
+       <div class="row text-center"> 
 		
 		 <div class="col-sm-4">
 			<div class="input-group">
@@ -35,7 +35,7 @@
 			   </span>
 				<sf:input path="firstName" class="form-control" id="inputEmail3" placeholder="First Name"/>
 			</div>
-			<div class="text-right" style="margin-top: 1; margin-right: 63">
+			<div class="text-center">
 			  <sf:errors path="firstName" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -48,7 +48,7 @@
 			   </span>
 				<sf:input path="lastName" class="form-control" id="inputEmail3" placeholder="Last Name"/>
 			</div>
-			<div class="text-right" style="margin-top: 1; margin-right: 64">
+			<div class="text-center">
 			  <sf:errors path="lastName" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -61,7 +61,7 @@
 			   </span>
 				<sf:input path="login" class="form-control" id="inputEmail3" placeholder="Login Id"/>
 			</div>
-			<div class="text-right" style="margin-top: 1; margin-right: 83">
+			<div class="text-center">
 			  <sf:errors path="login" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -72,7 +72,7 @@
 	 	<br>
 	 	<br>
 	
-	  <div class="row" style="margin-right: -140">
+	  <div class="row text-center">
 
 		<div class="col-sm-4">
 			<div class="input-group">
@@ -82,7 +82,7 @@
 				<sf:password class="form-control" id="inputPassword3" path="password" placeholder="Password"/>
 			  </div>	
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 70">
+			<div class="text-center">
 			  <label class="control-label text-danger" for="inputError1"> <sf:errors
 					path="password" cssClass="error" />
 			  </label>
@@ -98,7 +98,7 @@
 					<sf:input class="form-control" path="dob" id="dob" readonly="true" placeholder="DOB"/>
 				</div>
 			</div>
-			  <div class="text-right" style="margin-top: 1; margin-right: 114">
+			  <div class="text-center">
 			    <sf:errors path="dob" cssClass="error"
 				 class="control-label text-danger" for="inputError1" />
 			 </div>	 
@@ -112,7 +112,7 @@
 				<sf:input path="mobileNo" class="form-control" id="inputEmail3" placeholder="Mobile No."/>
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 71">
+			<div class="text-center">
 			  <sf:errors path="mobileNo" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -123,21 +123,21 @@
      <br>
      <br>
 
-     <div class="row" style="margin-right: -140">
+     <div class="row text-center">
 	 	
 	 	<div class="col-sm-4">
 			<div class="input-group">
 			  <span class="input-group-addon"> 
 			     <span class="glyphicon glyphicon-user"></span>
 			   </span>
-				<sf:select class="form-control" STYLE="width: 195px" size="0" path="gender">
+				<sf:select class="form-control" STYLE="width: 190px" size="0" path="gender">
 					<sf:option value="" label="Select" />
 					<sf:option value="Male" label="Male" />
 					<sf:option value="Female" label="Female" />
 				</sf:select> 
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 93">
+			<div class="text-center">
 			   <sf:errors path="gender" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -145,8 +145,7 @@
       
       </div> 
        
-      <div class="text-left" style="margin-left: 450; margin-top: 10">
-		<div class="col-sm-offset-2 col-sm-10" >
+      <div class="text-center">
 			<button type="submit" class="btn btn-primary" style="margin-left: -40;" name="operation" value="SignUp">
 				<span class="glyphicon glyphicon-check"></span>
 				
@@ -161,11 +160,6 @@
 				  <s:message code="label.cancel" /> </a>
 		  </div>
 		
-		</div> 
-
-	 <!--  </div> -->
 	</sf:form>
-<!--   </div> -->
-<!--  </div>	 -->
 
 

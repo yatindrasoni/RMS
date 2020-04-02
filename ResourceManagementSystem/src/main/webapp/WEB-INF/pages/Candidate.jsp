@@ -7,7 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<div class="text-center " style="margin-top: -15; margin-right: -150;">
+<div class="text-center">
 	<h1 class="text-primary">
 
 		<c:choose>
@@ -32,8 +32,6 @@
 	</c:if>
 </div>
 
-<div class="container">
-	<div>
 		<sf:form id="sandbox-container" action="Candidate" method="POST"
 			class="form-inline" commandName="form">
 
@@ -45,34 +43,31 @@
 			<sf:hidden path="modifiedDatetime" />
 
 
-			<div class="row" style="margin-top: 10">
-
-				<div class="row" style="margin-bottom: -50">
+			<div class="row text-center">
 
 					<div class="col-sm-4">
-						<div class="input-group" style="margin-left: 15;">
+						<div class="input-group">
 							<span class="input-group-addon"> <span
 								class="glyphicon glyphicon-user"></span>
 							</span>
 							<sf:input path="firstName" class="form-control" id="inputEmail3" placeholder="First Name"/>
 						</div>
 
-						<div class="text-right" style="margin-top: 1; margin-right: 77">
+						<div class="text-center">
 							<sf:errors path="firstName" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
 					</div>
 
 					<div class="col-sm-4">
-						<div class="input-group" style="margin-right: 1;">
+						<div class="input-group">
 						   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-user"></span>
 							</span>
 							<sf:input path="lastName" class="form-control" id="inputEmail3" placeholder="Last Name"/>
-
 						</div>
 
-						<div class="text-right" style="margin-top: 1; margin-right: 80">
+						<div class="text-center">
 							<sf:errors path="lastName" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
@@ -81,7 +76,7 @@
 
 					<c:choose>
 						<c:when test="${form.id > 0}">
-							<div class="input-group" style="margin-right: 16;">
+							<div class="input-group">
 							   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-envelope"></span>
 							   </span>
@@ -91,7 +86,7 @@
 
 							</div>
 
-							<div class="text-right" style="margin-top: 1; margin-right: 98">
+							<div class="text-center">
 								<sf:errors path="email" cssClass="error"
 									class="control-label text-danger" for="inputError1" />
 							</div>
@@ -100,14 +95,14 @@
 
 				<c:otherwise>
 					<div class="col-sm-4">
-						<div class="input-group" style="margin-left: -30;">
+						<div class="input-group">
 						   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-envelope"></span>
 							</span>
 						  <sf:input path="email" class="form-control" id="inputEmail3" placeholder="Email Id"/>
 						</div>
 
-						<div class="text-right" style="margin-top: 1; margin-right: 98">
+						<div class="text-center">
 							<sf:errors path="email" cssClass="error"
 								class="control-label text-danger" for="inputError1" />
 						</div>
@@ -116,18 +111,20 @@
 				</c:choose>
 
 			</div>
+			<br>
+			<br>
 
-			<div class="row" style="margin: 70;">
+			<div class="row text-center">
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: 30;">
+					<div class="input-group">
 					   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-education"></span>
 					   </span>
 						<sf:input path="collegeName" class="form-control" id="inputEmail3" placeholder="College Name"/>
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 84">
+					<div class="text-center">
 						<sf:errors path="collegeName" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
@@ -135,7 +132,7 @@
 
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: -27;">
+					<div class="input-group">
 					   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-phone"></span>
 					   </span>
@@ -144,14 +141,14 @@
 
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 10">
+					<div class="text-center">
 						<sf:errors path="contactNo" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: -85;">
+					<div class="input-group">
 					   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-user"></span>
 					   </span>
@@ -160,18 +157,20 @@
 
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: -35">
+					<div class="text-center">
 						<sf:errors path="aadharNo" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 
 			</div>
+			<br>
+			<br>
 
-			<div class="row" style="margin-top: -50">
+			<div class="row text-center">
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: 1;">
+					<div class="input-group">
 						<div class="input-group date">
 						   <span class="input-group-addon"><span
 								class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
@@ -181,7 +180,7 @@
 						</div>
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 129">
+					<div class="text-center">
 						<sf:errors path="dob" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
@@ -189,7 +188,7 @@
 
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: 1;">
+					<div class="input-group">
 					   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-envelope"></span>
 					   </span>
@@ -197,14 +196,14 @@
 
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 96">
+					<div class="text-center">
 						<sf:errors path="address" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-left: -30;">
+					<div class="input-group">
 					  <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-map-marker"></span>
 					  </span>
@@ -212,18 +211,20 @@
 
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 98">
+					<div class="text-center">
 						<sf:errors path="country" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 			</div>
+			<br>
+			<br>
 
 
-			<div class="row" style="margin: 20;">
+			<div class="row text-center">
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: 13;">
+					<div class="input-group">
 					  <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-map-marker"></span>
 					  </span>
@@ -231,14 +232,14 @@
 
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 87">
+					<div class="text-center">
 						<sf:errors path="state" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: -11;">
+					<div class="input-group">
 					  <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-map-marker"></span>
 					  </span>
@@ -246,14 +247,14 @@
 
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 70">
+					<div class="text-center">
 						<sf:errors path="city" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: -21;">
+					<div class="input-group">
 					   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-user"></span>
 					   </span>
@@ -265,36 +266,37 @@
 						</sf:select>
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 70">
+					<div class="text-center">
 						<sf:errors path="gender" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 			</div>
+			<br>
+			<br>
 
-
-			<div class="row" style="margin: 10;">
+			<div class="row text-center">
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: 11;">
+					<div class="input-group">
 					  <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-calendar"></span>
 					  </span>
 						<sf:input path="year" class="form-control" id="inputEmail3" placeholder="Year"/>
 					</div>
 
-					<div class="text-right" style="margin-top: 1; margin-right: 136">
+					<div class="text-center">
 						<sf:errors path="year" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: 5;">
+					<div class="input-group">
 					   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-education"></span>
 						</span>
-						<sf:select class="form-control" STYLE="width: 193px" size="0"
+						<sf:select class="form-control" STYLE="width: 190px" size="0"
 							path="semester">
 							<sf:option value="" label="Select" />
 							<sf:option value="0" label="Graduated" />
@@ -309,18 +311,18 @@
 
 						</sf:select>
 					</div>
-					<div class="text-right" style="margin-top: 1; margin-right: 83">
+					<div class="text-center">
 						<sf:errors path="semester" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="input-group" style="margin-right: -11;">
+					<div class="input-group">
 					   <span class="input-group-addon"> <span
 								class="glyphicon glyphicon-education"></span>
 						</span>
-						<sf:select class="form-control" STYLE="width: 193px" size="0"
+						<sf:select class="form-control" STYLE="width: 190px" size="0"
 							path="branchName">
 
 							<sf:option value="" label="Select" />
@@ -357,16 +359,16 @@
 						</sf:select>
 
 					</div>
-					<div class="text-right" style="margin-top: 1; margin-right: 33">
+					<div class="text-center">
 						<sf:errors path="branchName" cssClass="error"
 							class="control-label text-danger" for="inputError1" />
 					</div>
 				</div>
 			</div>
+			<br>
+			<br>
 
-
-			<div class="row" style="margin: 40;">
-				<div class="col-sm-offset-2 col-sm-10" style="margin-left: -200;">
+			<div class="text-center">
 					<button type="submit" class="btn btn-primary" name="operation"
 						value="Save">
 						<span class="glyphicon glyphicon-floppy-save"></span>
@@ -378,19 +380,11 @@
 						<span class="glyphicon glyphicon-remove"></span>
 						<s:message code="label.cancel"></s:message>
 					</button>
-
-					<%-- 			<c:if test="${form.id > 0}">
-				<button type="submit" class="btn btn-primary" name="operation"
-					value="Delete">Delete</button>
-			</c:if>
- --%>
 				</div>
-			</div>
-	</div>
+			
 
 	</sf:form>
-</div>
-</div>
+
 <script type="text/javascript">
 	$('#sandbox-container .input-group.date').datepicker({
 		orientation : "bottom auto",

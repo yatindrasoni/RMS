@@ -17,8 +17,7 @@ body{
 </style>
 <body>
 
-<div class="text-center " style="margin-top: -30; margin-right: -210;">
-
+<div class="text-center">
 	<h1 class="text-primary">
 
 		<c:choose>
@@ -54,9 +53,9 @@ body{
 		<sf:hidden path="modifiedDatetime"></sf:hidden>
 
 
-     <!-- <div class="row" style="margin-top: 10"> -->
+    
          
-        <div class="row" style="margin-right: -140">       
+      <div class="row text-center">       
  
 		  <div class="col-sm-4">
 			<div class="input-group">
@@ -66,7 +65,7 @@ body{
 				<sf:input path="firstName" class="form-control" id="inputEmail3" placeholder="First Name"/>
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 62">
+			<div class="text-center">
 			  <sf:errors path="firstName" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -80,7 +79,7 @@ body{
 				<sf:input path="lastName" class="form-control" id="inputEmail3" placeholder="Last Name"/>
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 64">
+			<div class="text-center">
 			  <sf:errors path="lastName" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -99,7 +98,7 @@ body{
 				</c:if>
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 83">
+			<div class="text-center">
 			  <sf:errors path="login" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -109,7 +108,7 @@ body{
 	<br>
 	<br>
 
-       <div class="row" style="margin-right: -140">
+       <div class="row text-center">
 		  
 			<div class="col-sm-4">	
 				<div class="input-group">
@@ -119,7 +118,7 @@ body{
 					<sf:input class="form-control" id="inputEmail3" path="password" placeholder="Password"/>
 				</div>
 				
-				<div class="text-right" style="margin-top: 1; margin-right: 70">
+				<div class="text-center">
 				  <label class="control-label text-danger" for="inputError1">
 					<sf:errors path="password" cssClass="error" />
 			      </label>
@@ -136,7 +135,7 @@ body{
 				</div>
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 114">
+			<div class="text-center">
 			  <sf:errors path="dob" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -150,7 +149,7 @@ body{
 				<sf:input path="mobileNo" maxlength="10" class="form-control" id="inputEmail3" placeholder="Mobile No."/>
 			</div>
 			
-			<div class="text-right" style="margin-top: 1; margin-right: 71">
+			<div class="text-center">
 			  <sf:errors path="mobileNo" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -160,20 +159,20 @@ body{
        <br>
        <br>
       
-      <div class="row" style="margin-right: -140">
+      <div class="row text-center">
 
 		<div class="col-sm-4">
 			<div class="input-group">
 			   <span class="input-group-addon"> 
 			     <span class="glyphicon glyphicon-user"></span>
 			   </span>
-				<sf:select class="form-control" STYLE="width: 195px" size="0" path="roleId" placeholder="Role Name">
+				<sf:select class="form-control" STYLE="width: 190px" size="0" path="roleId" placeholder="Role Name">
 					<sf:option value="" label="Select" />
 					<sf:options items="${roleList}" itemValue="id" itemLabel="name" />
 				</sf:select>
 			</div>
 			
-			<div class="text-right" style="margin-top: 2; margin-right: 67">
+			<div class="text-center">
 			  <sf:errors path="roleId" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
@@ -185,23 +184,23 @@ body{
 				<span class="input-group-addon"> 
 			     <span class="glyphicon glyphicon-user"></span>
 			   </span>
-				<sf:select class="form-control" STYLE="width: 195px" size="0" path="gender" placeholder="Gender">
+				<sf:select class="form-control" STYLE="width: 190px" size="0" path="gender" placeholder="Gender">
 					<sf:option value="" label="Select" />
 					<sf:option value="Male" label="Male" />
 					<sf:option value="Female" label="Female" />
 				</sf:select> 
 	        </div>  		
-			</div>
-			
-			 <div class="text-right" style="margin-top: 30; margin-right: 487">
+			 <div class="text-center">
 			  <sf:errors path="gender" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>
+		 </div>	
 		
 		</div>
-		
-		<div class="text-left" style="margin-left: 450; margin-top: 30;">
-		  <div class="col-sm-offset-2 col-sm-10" >
+		<br>
+	    <br>
+	    
+		<div class="text-center">
 			<button type="submit" class="btn btn-primary"
 				style="margin-left: -40;" name="operation" value="Save">
 				<span class="glyphicon glyphicon-floppy-save"></span>
@@ -215,7 +214,7 @@ body{
 			</button>
 			
 		</div>
-      </div>
+   
 	</sf:form>
 
 </body>
