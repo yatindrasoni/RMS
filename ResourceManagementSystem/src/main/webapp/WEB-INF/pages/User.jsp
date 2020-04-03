@@ -32,7 +32,8 @@ body{
 
 	</h1>
 </div>
-<div class="text-center pull-center" style="margin-left: 140">
+<br>
+<div class="text-center pull-center">
 	<c:if test="${success!= null }">
 		<div class="alert alert-success" role="alert">${success}</div>
 	</c:if>
@@ -184,7 +185,7 @@ body{
 				<span class="input-group-addon"> 
 			     <span class="glyphicon glyphicon-user"></span>
 			   </span>
-				<sf:select class="form-control" STYLE="width: 190px" size="0" path="gender" placeholder="Gender">
+				<sf:select class="form-control" STYLE="width: 190px" size="0" path="gender">
 					<sf:option value="" label="Select" />
 					<sf:option value="Male" label="Male" />
 					<sf:option value="Female" label="Female" />

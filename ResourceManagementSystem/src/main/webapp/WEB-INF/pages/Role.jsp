@@ -4,22 +4,23 @@
 
 <%@page isELIgnored="false"%>
 
-<div class="text-center" style="margin-left: 300">
+<div class="text-center">
 	<h1 class="text-primary">
 
 		<c:choose>
 			<c:when test="${form.id > 0}">
-				<b style="margin-left: -290"><s:message code="label.editRole"></s:message></b>
+				<b><s:message code="label.editRole"></s:message></b>
 
 			</c:when>
 			<c:otherwise>
-				<b style="margin-left: -290"><s:message code="label.addRole"></s:message></b>
+				<b><s:message code="label.addRole"></s:message></b>
 			</c:otherwise>
 		</c:choose>
 
 	</h1>
 </div>
-<div class="text-center pull-center" style="margin-right: 90;">
+<br>
+<div class="text-center pull-center">
 	<c:if test="${success!= null }">
 		<div class="alert alert-success" role="alert">${success}</div>
 	</c:if>
@@ -38,7 +39,7 @@
 		<sf:hidden path="createdDatetime"></sf:hidden>
 		<sf:hidden path="modifiedDatetime"></sf:hidden>
 
-   <div class="row text-center" style="margin-left: 240">
+   <div class="row text-center" style="margin-left: 230">
 
 		<div class="col-sm-4">
 			<div class="input-group">
@@ -73,8 +74,8 @@
 	<br>
 	<br>
 
-		<div class="text-center" style="margin-right: 30">
-			<button type="submit" style="margin-left: 45;" class="btn btn-primary" name="operation" value="Save">
+		<div class="text-center" style="margin-right: -1">
+			<button type="submit" class="btn btn-primary" name="operation" value="Save">
 				<span class="glyphicon glyphicon-floppy-save"></span>
 				<s:message code="label.save"></s:message>
 			</button>

@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 <%@ page isELIgnored="false"%>
-<div class="text-center " style="margin-right: -150;">
+<div class="text-center">
 	<h1 class="text-primary">
 
 		<c:choose>
@@ -19,7 +19,7 @@
 	</h1>
 </div>
 <br>
-<div class="text-center pull-center" style="margin-left: 140">
+<div class="text-center pull-center">
 	<c:if test="${success!= null }">
 		<div class="alert alert-success" role="alert">${success}</div>
 	</c:if>
@@ -27,8 +27,8 @@
 		<div class="alert alert-danger" role="alert">${error}</div>
 	</c:if>
 </div>
-<div class="col-sm-offset-4">
-	<sf:form id="sandbox-container" method="POST" class="form-horizontal"
+
+	<sf:form id="sandbox-container" method="POST" class="form-inline"
 		commandName="form">
 
 		<sf:hidden path="id" />
@@ -39,141 +39,117 @@
         <sf:hidden path="createdDatetime"></sf:hidden>
         <sf:hidden path="modifiedDatetime"></sf:hidden> --%>
 
+  
+    <div class="row text-center"> 
 
-		<div class="form-group">
-			<sf:label path="login" class="col-sm-3 ">
-				<div class="text-left" style="margin-left: 10;">
-					<s:message code="label.login"></s:message>
-				</div>
-			</sf:label>
-			<div class="col-sm-4" style="margin-left: -30;">
+		<div class="col-sm-4">
+			<div class="input-group">
+			  <span class="input-group-addon"> 
+			     <span class="glyphicon glyphicon-user"></span>
+			   </span>
 				<sf:input path="login" class="form-control" id="inputEmail3"
 					readonly="true" />
-
 			</div>
-			<div class="text-right">
+			<div class="text-center">
 			  <sf:errors path="login" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
 
-		<div class="form-group">
-			<sf:label path="firstName" class="col-sm-3 control-label">
-				<div class="text-left" style="margin-left: 10;">
-					<s:message code="label.firstName1"></s:message>
-				</div>
-			</sf:label>
-			<div class="col-sm-4" style="margin-left: -30;">
+		<div class="col-sm-4">
+			<div class="input-group">
+			  <span class="input-group-addon"> 
+			     <span class="glyphicon glyphicon-user"></span>
+			   </span>
 				<sf:input path="firstName" class="form-control" id="inputEmail3" />
-
 			</div>
 			
-			<div class="text-right">
+			<div class="text-center">
 			  <sf:errors path="firstName" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
 
-		<div class="form-group">
-			<sf:label path="lastName" class="col-sm-3 control-label">
-				<div class="text-left" style="margin-left: 10;">
-					<s:message code="label.lastName1"></s:message>
-				</div>
-			</sf:label>
-			<div class="col-sm-4" style="margin-left: -30;">
+		<div class="col-sm-4">
+			<div class="input-group">
+			  <span class="input-group-addon"> 
+			     <span class="glyphicon glyphicon-user"></span>
+			   </span>
 				<sf:input path="lastName" class="form-control" id="inputEmail3" />
-
 			</div>
 			
-			<div class="text-right">  
+			<div class="text-center">  
 			  <sf:errors path="lastName" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 		   </div>
 		</div>
+		
+	</div>
+	<br>
+	<br>
+	
+	 <div class="row text-center"> 	
 
-		<%-- <div class="form-group">
-            <sf:label path="dob" class="col-sm-2 ">
-                    <s:message code="label.dob"></s:message>
-                </sf:label>
-                <div class="col-sm-5">
-            <sf:input  path="dob" class="form-control" id="dob" />
-           
-        </div>
-         <sf:errors path="dob"  cssClass="error" class="control-label text-danger" for="inputError1"  />
-        </div> --%>
-
-		<div class="form-group">
-			<label class="col-sm-3 ">
-				<div class="text-left" style="margin-left: 10;">
-					<s:message code="label.dob" />
-				</div>
-			</label>
-			<div class="col-sm-4" style="margin-left: -30;">
+		<div class="col-sm-4">
+			<div class="input-group">
 				<div class="input-group date">
-					<sf:input class="form-control" path="dob" id="dob" readonly="true" />
 					<span class="input-group-addon"><span
-						class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+						class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+					</span>
+					<sf:input class="form-control" path="dob" id="dob" readonly="true" />
 				</div>
 			</div>
 			
-			<div class="text-right">
+			<div class="text-center">
 			   <sf:errors path="dob" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
 
-		<div class="form-group">
-			<sf:label path="mobileNo" class="col-sm-3 control-label">
-				<div class="text-left" style="margin-left: 10;">
-					<s:message code="label.mobileNo"></s:message>
-				</div>
-			</sf:label>
-			<div class="col-sm-4" style="margin-left: -30;">
+		<div class="col-sm-4">
+			<div class="input-group">
+			   <span class="input-group-addon"> 
+			     <span class="glyphicon glyphicon-phone"></span>
+			   </span>
 				<sf:input path="mobileNo" maxlength="10" class="form-control"
 					id="inputEmail3" />
-
 			</div>
 			
-			<div class="text-right">
+			<div class="text-center">
 			  <sf:errors path="mobileNo" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
-		<div class="form-group">
-			<sf:label path="gender" class="col-sm-3 ">
-				<div class="text-left" style="margin-left: 10;">
-					<s:message code="label.gender"></s:message>
-				</div>
-			</sf:label>
-			<div class="col-sm-4" style="margin-left: -30;">
-				<sf:radiobutton path="gender" value="Male" />
-				<s:message code="label.male"></s:message>
-				<sf:radiobutton path="gender" value="Female" />
-				<s:message code="label.female"></s:message>
+		
+		<div class="col-sm-4">
+			<div class="input-group">
+			  <span class="input-group-addon"> 
+			     <span class="glyphicon glyphicon-user"></span>
+			   </span>
+				<sf:select class="form-control" STYLE="width: 190px" size="0" path="gender">
+					<sf:option value="" label="Select" />
+					<sf:option value="Male" label="Male" />
+					<sf:option value="Female" label="Female" />
+				</sf:select> 
 			</div>
 			
-			<div class="text-right">
+			<div class="text-center">
 			  <sf:errors path="gender" cssClass="error"
 				class="control-label text-danger" for="inputError1" />
 			</div>	
 		</div>
 
-		<div class="col-sm-offset-2 col-sm-10" style="margin-left: -160; margin-top: 30;">
+     </div>
+     <br>
+     <br>
+
+		<div class="text-center">
 			<button type="submit" class="btn btn-primary" name="operation"
 				value="Save">
 				<span class="glyphicon glyphicon-floppy-save"></span>
 				<s:message code="label.save" />
 			</button>
-
-
 		</div>
 
 
 	</sf:form>
-</div>
-<%-- <script>
-	$(function() {
-		$("#dob").datepicker();
-	});
-</script>
- --%>

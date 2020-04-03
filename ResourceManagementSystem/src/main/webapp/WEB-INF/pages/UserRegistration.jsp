@@ -12,8 +12,7 @@
 </div>
 <br>
 
-
-<div class="text-center pull-center" style="margin-left: 140;">
+<div class="text-center pull-center">
 	<c:if test="${success!= null }">
 		<div class="alert alert-success" role="alert">${success}</div>
 	</c:if>
