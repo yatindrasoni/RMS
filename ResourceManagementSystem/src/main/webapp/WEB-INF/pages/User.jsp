@@ -7,14 +7,6 @@
 <head>
 <%@ page isELIgnored="false"%>
 </head>
-<style>
-body{
-  /* background: url("http://localhost:8080/ResourceManagementSystem/resource/images/background.jpg"); */
-
-  /* #D1EEEE, */
-}
-
-</style>
 <body>
 
 <div class="text-center">
@@ -52,10 +44,7 @@ body{
 		<sf:hidden path="modifiedBy"></sf:hidden>
 		<sf:hidden path="createdDatetime"></sf:hidden>
 		<sf:hidden path="modifiedDatetime"></sf:hidden>
-
-
-    
-         
+     
       <div class="row text-center">       
  
 		  <div class="col-sm-4">
@@ -128,7 +117,7 @@ body{
 	
 		<div class="col-sm-4">
 			<div class="input-group">
-				<div class="input-group date">
+				<div class="input-group date" id="datepicker">
 				    <span class="input-group-addon" id="basic-addon2"> <span
 						class="glyphicon glyphicon-calendar"></span>
 					</span>
@@ -218,5 +207,10 @@ body{
    
 	</sf:form>
 
+<script type="text/javascript">
+
+$("#datepicker").datepicker();
+
+</script>	
 </body>
 </html>

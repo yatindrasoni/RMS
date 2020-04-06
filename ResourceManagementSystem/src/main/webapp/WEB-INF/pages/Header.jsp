@@ -16,7 +16,7 @@
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="../js/bootstrap-datepicker.min.js"></script>
 
-<nav class="navbar navbar-default navbar-fixed-top c">
+<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
